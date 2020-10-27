@@ -474,23 +474,23 @@
 // 1. Три різних числа вводяться через prompt().
 // За допомоги if else вивести іх в порядку зростання. (відсортувати по зростанню)
 
-let a = prompt('enter num1');
-let b = prompt('enter num2');
-let c = prompt('enter num3');
+// let a = prompt('enter num1');
+// let b = prompt('enter num2');
+// let c = prompt('enter num3');
 
-if ((a < b && a < c) && (b < c)) {
-    console.log(a, b, c);
-} else if ((a < b && a < c) && (c < b)) {
-    console.log(a, c, b);   
-} else if ((b < a && b < c) && (a < c)) {
-    console.log(b, a, c);
-} else if ((b < a && b < c) && (c < a)) {
-    console.log(b, c, a);
-} else if ((c < a && c < b) && (b < a)) {
-    console.log(c, b, a);
-} else if ((c < a && c < b) && (a < b)) {
-    console.log(c, a, b);
-}
+// if ((a < b && a < c) && (b < c)) {
+//     console.log(a, b, c);
+// } else if ((a < b && a < c) && (c < b)) {
+//     console.log(a, c, b);   
+// } else if ((b < a && b < c) && (a < c)) {
+//     console.log(b, a, c);
+// } else if ((b < a && b < c) && (c < a)) {
+//     console.log(b, c, a);
+// } else if ((c < a && c < b) && (b < a)) {
+//     console.log(c, b, a);
+// } else if ((c < a && c < b) && (a < b)) {
+//     console.log(c, a, b);
+// }
 
 // 2.
 // Все параматры получаем с клавиатуры!!!!
@@ -500,7 +500,19 @@ if ((a < b && a < c) && (b < c)) {
 // Если светофор красный - вывести "стой".
 // Если светофор в аварийном режиме вывести "делай что хочешь"!
 
+// -----------------------------------------------проверь, чтоб я спал спокойно
 
+// let color = prompt('What is the color now?');
+
+// if (color == 'green') {
+//     alert('go');
+// } else if (color == 'yellow') {
+//     alert('wait');
+// } else if (color == 'red') {
+//     alert ('stop');
+// } else {
+//     alert('do anything  u wanna do')
+// }
 
 // 3
 // Все параметры получаем с клавиатуры!!!!(prompt , confirm)
@@ -513,3 +525,22 @@ if ((a < b && a < c) && (b < c)) {
 // Если светофор красный и машин нет- вывести "стой все рано".
 // Если светофор красный - и машины есть вывести "стой и жди".
 // Если светофор в аварийном режиме вывести "делай что хочешь"!
+// let color = prompt('What is the color now?');
+// let isRoadClear = confirm('the road is clear?');
+
+// if (color == 'green' && isRoadClear == true) {
+//     alert('иди');
+// } else if (color == 'green' && isRoadClear == false) {
+//     alert('подожди пока нарушители проедут');
+// } else if (color == 'yellow' && isRoadClear == false) {
+//     alert('жди');
+// } else if (color == 'yellow' && isRoadClear == true) {
+//     alert('все равно жди');
+// } else if (color == 'red' && isRoadClear == true) {
+//     alert('стой все равно');
+// } else if (color == 'red' && isRoadClear == false) {
+//     alert('стой и жди');
+// } else {
+//     alert('делай что хочешь')
+// }
+
