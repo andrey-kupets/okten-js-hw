@@ -136,7 +136,44 @@
 // довільним набором полів, і доавляет його в поточний об'єкт car
 // ==============================================
 
-// ***********делал сразу классом
+// let car = {
+    //     model: 'Cayen',
+    //     producer: 'Porshe',
+    //     year: 1980,
+    //     maxSpeed: 180,
+    //     volume: 6.5,
+    // //     driver: '',
+    //     drive: function () {
+    //         console.log(`"їдемо зі швидкістю ${this.maxSpeed} на годину"`); 
+    //     },
+    //     info: function () {
+    //         console.log(`
+    //         model: ${this.model}
+    //         producer: ${this.producer}
+    //         year: ${this.year}
+    //         maxSpeed: ${this.maxSpeed}
+    //         volume: ${this.volume}
+    //         driver: ${this.driver}
+    //         `);
+    //     },
+    //     increaseMaxSpeed: function (newSpeed) {
+    //         this.maxSpeed += newSpeed;    
+    //     },  
+    //     changeYear: function (newValue) {
+    //         this.year = newValue;
+    //     },
+    //     addDriver: function (driver) {
+    //         this.driver = driver;
+    //     }    
+    // }
+    
+    // let driver = {name: 'Tarik', age: 25};
+    
+    // car.drive();
+    // car.increaseMaxSpeed(50);
+    // car.changeYear(1997);
+    // car.addDriver(driver.name);
+    // car.info();
 
 // ==============================================
 // - Створити функцію конструктор яка дозволяє створювати об'єкти car, з властивостями модель, виробник, рік випуску, максимальна швидкість, об'єм двигуна. додати в об'єкт функції:
@@ -147,7 +184,51 @@
 // -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і доавляет його в поточний об'єкт car
 // ==============================================
 
-// ***********делал сразу классом
+// function Car (model, producer, year, maxSpeed, volume) {
+//     this.model = model || "No";
+//     this.producer = producer;
+//     this.year = year;
+//     this.maxSpeed = maxSpeed;
+//     this.volume = volume;
+//     this.driver = '';
+    
+//     this.drive = function() {
+//         console.log(`"їдемо зі швидкістю ${this.maxSpeed} км на годину"`);
+//     };
+//     this.info = function() {
+//         console.log(`
+//         model: ${this.model}
+//         producer: ${this.producer}
+//         year: ${this.year}
+//         speedMax: ${this.maxSpeed};
+//         volume ${this.volume};
+//         driver ${this.driver.name};
+//         `);
+//     };
+//     this.increaseMaxSpeed = function(newSpeed) {
+//         this.maxSpeed += newSpeed;
+//     };
+//     this.changeYear = function(newValue) {
+//         this.year = newValue;
+//     };
+//     this.addDriver = function(driver) {
+//         this.driver = driver;
+//     };    
+// }
+
+// let model = 'Touareg';
+// let producer = 'Volkswagen';
+// let year = 1985;
+// let maxSpeed = 200;
+// let volume = 8;
+// let driver = 'Petya';
+
+// let car = new Car(model, producer, year, maxSpeed, volume, driver);
+// car.drive();
+// car.changeYear(2000);
+// car.increaseMaxSpeed(50);
+// car.addDriver({name: 'Vanyek', age: 21});  // віводит обджект обджект, тогда делаю .нэйм
+// car.info();
 
 // ==============================================
 // - Створити клас який дозволяє створювати об'єкти car, з властивостями модель, виробник, рік випуску, максимальна швидкість, об'єм двигуна. додати в об'єкт функції:
