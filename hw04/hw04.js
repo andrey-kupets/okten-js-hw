@@ -182,15 +182,10 @@
 // let arr2 = [11, 22, 33, 44];
 
 // function sum(arr1, arr2) {
-//     // let arr3 = [];
-    // for (const i of arr1) {
-    //     console.log(arr1[i-1]);
-    //     arr3.push(arr1[i-1] + arr2[i-1])
-    // }
-    // -----------------------or
-    // for (let i = 0; i < arr1.length; i++) {
-    //     arr3.push(arr1[i] + arr2[i])
-    // }
+//     let arr3 = [];
+//     for (let i = 0; i < arr1.length; i++) {
+//         arr3.push(arr1[i] + arr2[i])
+//     }
 //     return arr3;
 // }
 
@@ -233,22 +228,34 @@
 // [0,1,2,3,4] => [1,2,3,4,0]
 // [0,0,1,0]   => [1,0,0,0]
 
-let arr = [0 ,2, 3, 10, 20, 24, 100, 0, 14, 0, 6, 8];
+// let arr = [0, 0, 0, 2, 3, 10, 20, 24, 100, 0, 14, 0, 6, 8, 0];
 
-function fn() {
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] === 0) {
-            let slicedArr = arr.slice(i, i + 1);
-            // console.log(slicedArr);
-            arr.splice(i, 1);
-            arr.push(slicedArr[0]);
-        }
-    }
-    return arr
-}
+// function fn() {
+//     for (let i = arr.length - 2 ; i >= 0; i--) {
+//         if (arr[i] === 0) {
+//             let slicedArr = arr.slice(i, i + 1);
+//             // console.log(slicedArr);
+//             arr.splice(i, 1);
+//             arr.push(slicedArr[0]);
+//         }
+//     }
+//     return arr
+// }
 
-const y = fn();
-console.log(y);
+// function fn() {
+//     for (let i = arr.length - 2; i = 0; i--) {
+//         if (arr[i] === 0) {
+//             let slicedArr = arr.slice(i, i + 1 );
+//             // console.log(slicedArr);
+//             arr.splice(i, 1);
+//             arr.push(slicedArr[0]);
+//         }
+//     }
+//     return arr
+// }
+
+// const y = fn();
+// console.log(y);
 
 // Створити функцію яка :
 // - Додає в боді блок з текстом "Hello owu"

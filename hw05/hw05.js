@@ -158,53 +158,53 @@
 // -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і доавляет його в поточний об'єкт car
 // ==============================================
 
-class Car {
-    constructor(model, producer, year, maxSpeed, volume) {
-        this.Model = model || "No";
-        this.Producer = producer;
-        this.Year = year;
-        this.MaxSpeed = maxSpeed;
-        this.Volume = volume;
-        this.Driver = driver;
-    }
-    drive() {
-        console.log(`"їдемо зі швидкістю ${this.MaxSpeed} км на годину"`);
-    };
-    info() {
-        console.log(`
-        model: ${this.Model};
-        producer: ${this.Producer};
-        year: ${this.Year};
-        speedMax: ${this.MaxSpeed};
-        volume ${this.Volume};
-        driver ${this.Driver.Name};
-        `);
-    };
-    increaseMaxSpeed (newSpeed) {
-        this.MaxSpeed += newSpeed;
-    };
-    changeYear (newValue) {
-        this.Year = newValue;
-    };
-    addDriver (driver) {
-        this.Driver = driver;
-    }
-}
+// class Car {
+//     constructor(model, producer, year, maxSpeed, volume) {
+//         this.Model = model || "No";
+//         this.Producer = producer;
+//         this.Year = year;
+//         this.MaxSpeed = maxSpeed;
+//         this.Volume = volume;
+//         this.Driver = driver;
+//     }
+//     drive() {
+//         console.log(`"їдемо зі швидкістю ${this.MaxSpeed} км на годину"`);
+//     };
+//     info() {
+//         console.log(`
+//         model: ${this.Model};
+//         producer: ${this.Producer};
+//         year: ${this.Year};
+//         speedMax: ${this.MaxSpeed};
+//         volume ${this.Volume};
+//         driver ${this.Driver.Name};
+//         `);
+//     };
+//     increaseMaxSpeed (newSpeed) {
+//         this.MaxSpeed += newSpeed;
+//     };
+//     changeYear (newValue) {
+//         this.Year = newValue;
+//     };
+//     addDriver (driver) {
+//         this.Driver = driver;
+//     }
+// }
 
-let model = 'Touareg';
-let producer = 'Volkswagen';
-let year = 1985;
-let maxSpeed = 200;
-let volume = 8;
-let driver = 'Petya';
+// let model = 'Touareg';
+// let producer = 'Volkswagen';
+// let year = 1985;
+// let maxSpeed = 200;
+// let volume = 8;
+// let driver = 'Petya';
 
-let car = new Car(model, producer, year, maxSpeed, volume, driver);
-console.log(car);
-car.drive();
-car.changeYear(2021);
-car.increaseMaxSpeed(40);
-car.addDriver({Name: 'Vanyek', Age: 21});  // віводит обджект обджект, тогда делаю .нэйм
-car.info(); // сделать последней, чтобы менялась инфо
+// let car = new Car(model, producer, year, maxSpeed, volume, driver);
+// console.log(car);
+// car.drive();
+// car.changeYear(2021);
+// car.increaseMaxSpeed(40);
+// car.addDriver({Name: 'Vanyek', Age: 21});  // віводит обджект обджект, тогда делаю .нэйм
+// car.info(); // сделать последней, чтобы менялась инфо
 // ==============================================
 // -створити класс попелюшка з полями ім'я, вік, розмір ноги
 // --Створити 10 попелюшок , покласти їх в масив
@@ -212,7 +212,51 @@ car.info(); // сделать последней, чтобы менялась и
 // -- за допоиоги циклу знайти яка попелюшка повинна бути з принцом
 // ==============================================
 
+// class Cinderella {
+//     constructor(name, age, footSize) {
+//         this.name = name;
+//         this.age = age;
+//         this.footSize = footSize;
+//     }
+// }
 
+// let clon1 = new Cinderella('Masha', 21, 36);
+// let clon2 = new Cinderella('Lyubanya', 36, 39);
+// let clon3 = new Cinderella('Ira', 32, 41);
+// let clon4 = new Cinderella('Yulya', 19, 38);
+// let clon5 = new Cinderella('Tanya', 22, 36);
+// let clon6 = new Cinderella('Vera', 18, 41);
+// let clon7 = new Cinderella('Dorothy', 19, 36);
+// let clon8 = new Cinderella('Clava', 40, 40);
+// let clon9 = new Cinderella('Sasha', 30, 37);
+// let clon10 = new Cinderella('Anastasiya', 17, 35);
+
+// let devishnik = [clon1, clon2, clon3, clon4, clon5, clon6, clon7, clon8, clon9, clon10];
+// console.log(devishnik);
+
+// class Prince {
+//     constructor(name, age, slipper) {
+//         this.name = name;
+//         this.age = age;
+//         this.slipper = slipper;
+//     }
+// }
+
+// let prince = new Prince('MadMax', 35, 35);
+// console.log(prince);
+
+// for (let i = 0; i < devishnik.length; i++) {
+//     if (devishnik[i].footSize === prince.slipper) {
+//         console.log(devishnik[i].name);
+//     }
+    
+// }
+// // or
+// for (const i of devishnik) {
+//     if (i.footSize === prince.slipper) {
+//         console.log(i.name);
+//     }
+// }
 
 // ==============================================
 // -створити функцію конструктор попелюшка з полями ім'я, вік, розмір ноги
@@ -220,3 +264,48 @@ car.info(); // сделать последней, чтобы менялась и
 // --Сторити об'єкт типу "принц" за допомоги функції конструктора з полями ім'я, вік, туфелька яку він знайшов, та функцію "пошук попелюшки"
 // -- функція повинна приймати масив попелюшок, та шукає ту котра йому підходить
 // ==============================================
+
+function Cinderella (name, age, footSize) {
+        this.name = name;
+        this.age = age;
+        this.footSize = footSize;
+    }
+
+
+let clon1 = new Cinderella('Masha', 21, 36);
+let clon2 = new Cinderella('Lyubanya', 36, 39);
+let clon3 = new Cinderella('Ira', 32, 41);
+let clon4 = new Cinderella('Yulya', 19, 38);
+let clon5 = new Cinderella('Tanya', 22, 36);
+let clon6 = new Cinderella('Vera', 18, 41);
+let clon7 = new Cinderella('Dorothy', 19, 36);
+let clon8 = new Cinderella('Clava', 40, 40);
+let clon9 = new Cinderella('Sasha', 30, 37);
+let clon10 = new Cinderella('Anastasiya', 17, 35);
+
+let devishnik = [clon1, clon2, clon3, clon4, clon5, clon6, clon7, clon8, clon9, clon10];
+console.log(devishnik);
+
+class Prince {
+    constructor(name, age, slipper) {
+        this.name = name;
+        this.age = age;
+        this.slipper = slipper;
+    }
+}
+
+let prince = new Prince('MadMax', 35, 35);
+console.log(prince);
+
+for (let i = 0; i < devishnik.length; i++) {
+    if (devishnik[i].footSize === prince.slipper) {
+        console.log(devishnik[i].name);
+    }
+    
+}
+// or
+for (const i of devishnik) {
+    if (i.footSize === prince.slipper) {
+        console.log(i.name);
+    }
+}
