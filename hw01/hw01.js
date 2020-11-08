@@ -492,6 +492,16 @@
 //     console.log(c, a, b);
 // }
 
+// ------------------------second variant-----------------
+let a = +prompt('Type 1st number');
+let b = +prompt('Type 2d number');
+let c = +prompt('Type 3d number');
+
+let myArray = [a, b, c]
+myArray.sort();
+
+console.log(myArray);
+
 // 2.
 // Все параматры получаем с клавиатуры!!!!
 // Имитируем поведение пешехода на перекстке.
@@ -543,14 +553,3 @@
 // } else {
 //     alert('делай что хочешь')
 // }
-// ------------------------second variant-----------------
-let a = +prompt('Type 1st number');
-let b = +prompt('Type 2d number');
-let c = +prompt('Type 3d number');
-
-
-let myArray = [a, b, c]
-
-myArray.sort();
-
-console.log(myArray);

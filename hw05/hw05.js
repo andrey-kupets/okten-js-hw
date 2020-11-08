@@ -346,47 +346,61 @@
 // -- функція повинна приймати масив попелюшок, та шукає ту котра йому підходить
 // ==============================================
 
-function Cinderella (name, age, footSize) {
-        this.name = name;
-        this.age = age;
-        this.footSize = footSize;
-    }
+// function Cinderella (name, age, footSize) {
+//         this.name = name;
+//         this.age = age;
+//         this.footSize = footSize;
+//     }
 
 
-let clon1 = new Cinderella('Masha', 21, 36);
-let clon2 = new Cinderella('Lyubanya', 36, 39);
-let clon3 = new Cinderella('Ira', 32, 41);
-let clon4 = new Cinderella('Yulya', 19, 38);
-let clon5 = new Cinderella('Tanya', 22, 36);
-let clon6 = new Cinderella('Vera', 18, 41);
-let clon7 = new Cinderella('Dorothy', 19, 36);
-let clon8 = new Cinderella('Clava', 40, 40);
-let clon9 = new Cinderella('Sasha', 30, 37);
-let clon10 = new Cinderella('Anastasiya', 17, 35);
+// let clon1 = new Cinderella('Masha', 21, 36);
+// let clon2 = new Cinderella('Lyubanya', 36, 39);
+// let clon3 = new Cinderella('Ira', 32, 41);
+// let clon4 = new Cinderella('Yulya', 19, 38);
+// let clon5 = new Cinderella('Tanya', 22, 36);
+// let clon6 = new Cinderella('Vera', 18, 41);
+// let clon7 = new Cinderella('Dorothy', 19, 36);
+// let clon8 = new Cinderella('Clava', 40, 40);
+// let clon9 = new Cinderella('Sasha', 30, 37);
+// let clon10 = new Cinderella('Anastasiya', 17, 35);
 
-let devishnik = [clon1, clon2, clon3, clon4, clon5, clon6, clon7, clon8, clon9, clon10];
-console.log(devishnik);
+// let devishnik = [clon1, clon2, clon3, clon4, clon5, clon6, clon7, clon8, clon9, clon10];
+// console.log(devishnik);
 
-class Prince {
-    constructor(name, age, slipper) {
-        this.name = name;
-        this.age = age;
-        this.slipper = slipper;
-    }
-}
+// class Prince {
+//     constructor(name, age, slipper) {
+//         this.name = name;
+//         this.age = age;
+//         this.slipper = slipper;
+//     }
+// }
 
-let prince = new Prince('MadMax', 35, 35);
-console.log(prince);
+// let prince = new Prince('MadMax', 35, 35);
+// console.log(prince);
 
-for (let i = 0; i < devishnik.length; i++) {
-    if (devishnik[i].footSize === prince.slipper) {
-        console.log(devishnik[i].name);
-    }
+// for (let i = 0; i < devishnik.length; i++) {
+//     if (devishnik[i].footSize === prince.slipper) {
+//         console.log(devishnik[i].name);
+//     }
     
-}
-// or
-for (const i of devishnik) {
-    if (i.footSize === prince.slipper) {
-        console.log(i.name);
-    }
-}
+// }
+// // or
+// for (const i of devishnik) {
+//     if (i.footSize === prince.slipper) {
+//         console.log(i.name);
+//     }
+// }
+
+// -----------------****************---------------
+
+    Створити обєкт автомобіля з полями:
+Марка автомобля, потужність двигуна, власник, ціна, рік випуску.
+Власник автомобіля теж має бути обєкт, у якого є поля
+Імя, вік, стаж водіння.
+Створити не менше 7 та не більше 20 машинок.
+Зробили половину автопарку ремонт мотору, що збільшить потужність автомобілів на 10% (переприсвоєння змінної потужності).
+На відремонтовані автомобілі найняти нових водіїв (переприсвоїти змінну водій).
+Для початку вкладіть всі наші створені автомобілі в масив cars.
+Далі необхідно рати кожну другу машинку (цикл з кроком в 2), та робити їй підвищення потужності двигуна на 10% та ціну на 5%
+Після того зробити перевірку досвіду ВСІХ наших водіїв. Якщо досвід водія менший за 5 років, але його вік більший за 25, то необідно відправити його на курси підвищення кваліфікації, що збільшить йому досвід на 1 рік.
+Також спробуйте порахувати суму, яку потрібно потратити для покупки всіх цих авто в циклі

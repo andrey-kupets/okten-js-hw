@@ -782,12 +782,124 @@
 // }
 //-------------------------------------------------------------------------
 
-// - за допомоги document.createElement та appendChild створити таблицю на 1 рядок з трьома ячейками всередені
-// - за допомоги document.createElement, appendChild та циклу створити таблицю на 10 рядків з трьома ячейками всередені
-// - за допомоги document.createElement, appendChild та 2х циклів створити таблицю на 10 рядків з 5 ячейками всередені
-// - за допомоги document.createElement, appendChild та 2х циклів створити таблицю на n рядків з m ячейками всередені. n та m отримати з prompt
+// - за допомоги document.createElement та appendChild 
+// створити таблицю на 1 рядок з трьома ячейками всередені
 
-// --Завантажити з мережі будь-який шаблон сайту. Підключити до нього свій скріпт-файл. У файлі прописати наступні доступи та дії
+// const table = document.createElement('table');
+// const tr = document.createElement('tr');
+// const td1 = document.createElement('td');
+// const td2 = document.createElement('td');
+// const td3 = document.createElement('td');
+
+// tr.appendChild(td1);
+// tr.appendChild(td2);
+// tr.appendChild(td3);
+
+// table.appendChild(tr)
+// document.body.appendChild(table);
+
+// console.log(table);
+
+// - за допомоги document.createElement, 
+// appendChild та циклу створити таблицю 
+// на 10 рядків з трьома ячейками всередені
+
+// const table = document.createElement('table');
+
+// for (let i = 0; i < 10; i++) {
+// 	const tr = document.createElement('tr');
+// 		for (let i = 0; i < 3; i++) {
+// 			const td = document.createElement('td');
+// 			tr.appendChild(td);
+// 		}
+// 		table.appendChild(tr);
+// }
+
+// document.body.appendChild(table);
+
+// - за допомоги document.createElement, appendChild та 2х циклів 
+// створити таблицю на 10 рядків з 5 ячейками всередені
+
+// const table = document.createElement('table');
+
+// for (let i = 0; i < 10; i++) {
+// 	const tr = document.createElement('tr');
+// 		for (let i = 0; i < 5; i++) {
+// 			const td = document.createElement('td');
+// 			tr.appendChild(td);
+// 		}
+// 		table.appendChild(tr);
+// }
+
+// document.body.appendChild(table);
+// - за допомоги document.createElement, appendChild та 2х циклів 
+// створити таблицю на n рядків з m ячейками всередені.
+//  n та m отримати з prompt
+
+// const table = document.createElement('table');
+// let n = +prompt('Enter yr row');
+// let m = +prompt('enter yr column');
+
+// for (let i = 0; i < n; i++) {
+// 	const tr = document.createElement('tr');
+// 		for (let i = 0; i < m; i++) {
+// 			const td = document.createElement('td');
+// 			tr.appendChild(td);
+// 		}
+// 		table.appendChild(tr);
+// }
+
+// document.body.appendChild(table);
+
+// --Завантажити з мережі будь-який шаблон сайту.
+//  Підключити до нього свій скріпт-файл. У файлі прописати 
+//  наступні доступи та дії
+
+//  - знайти всі елементі, які мають id
+
+// const elementsByTagName = document.getElementsByTagName('*');
+// console.log(elementsByTagName);
+
+// for (const tag of elementsByTagName) {
+// 	if (tag.getAttribute('id')) {
+// 	// if (tag.id) {     -------------- or so
+// 		console.log(tag);
+// 	}
+// }
+
+// or............
+
+// const elementNodeListOf = document.querySelectorAll('[id]');
+// console.log(elementNodeListOf);
+
 //  - знайти всі елементі, які мають class
+
+// const elementsByTagName = document.getElementsByTagName('*');
+// console.log(elementsByTagName);
+
+// for (const tag of elementsByTagName) {
+// 	if (tag.getAttribute('class')) {
+// 	// if (tag.class) {     -------------- or so
+// 		console.log(tag);
+// 	}
+// }
+
 //  - знайти всі параграфи ,та змінити текст на hello oktenweb!
+
+// const elementsByTagName = document.getElementsByTagName('p');
+// console.log(elementsByTagName);
+
+// for (const tag of elementsByTagName) {
+// 	tag.innerText = 'hello oktenweb!';
+// 	console.log(tag);
+// }
+
 //  - знайти всі div та змінити ім колір на червоний
+
+// const elementsByTagName = document.getElementsByTagName('div');
+// console.log(elementsByTagName);
+
+// for (const tag of elementsByTagName) {
+// 	tag.style.color = 'red';
+// 	console.log(tag);
+// }

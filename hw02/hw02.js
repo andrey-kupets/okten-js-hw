@@ -194,36 +194,97 @@
 // - Відтворити роботу годинника, відрахувавши 2 хвилини 
 // (2 цикли! 1й - хвилини, 2й - секунди)
 
-for (let i = 0; i < 3; i++) {
-    let j = 0;
-        if (i < 2 ) {
-            for (    ;j < 60; j++){
-                console.log(i, j); 
-                }
-        } else if( i = 2 ) {
-            console.log(i, j);
-        }   
-    }
+// for (let i = 0; i < 3; i++) {
+//     let j = 0;
+//         if (i < 2 ) {
+//             for (; j < 60; j++){
+//                 console.log(i, j); 
+//                 }
+//         } else if( i = 2 ) {
+//             console.log(i, j);
+//         }   
+//     }
 
 
 // вышло без 1 секунды
 
 // - Відтворити роботу годинника, відрахувавши  
 // 2 години 20 хвилини (3 цикли! 1й - години, 2й - хвилини, 3й - секунди)
-// if (h < 20 ) {
-//     console.log(h, i, j); 
 
-//     for (let h = 0; h <= 2; h++) {
-//         for (let i = 0; i <= 20; i++) {
-//             let j = 0;
-//                 for (    ;j < 60; j++){}   
+// let hours = 0;
+// let minutes = 0;
+// let seconds = 1;
+
+// while (seconds <= 60){
+//     if (seconds === 60) {
+//         minutes++;
+//         seconds = 0;
+//     } else if (minutes === 60) {
+//         hours++;
+//         minutes = 0;
+//     } else if (hours === 2 && minutes === 20) {
+//         break;
+//     } else if (hours === 0) {
+//         console.log(`minutes: ${minutes}, seconds: ${seconds};`);
+//         seconds++
+//     } else {
+//         console.log(`hours: ${hours}, minutes: ${minutes}, seconds: ${seconds};`);
+//         seconds++;
 //     }
-// } else if ( h = 20 ) {
-//     console.log(h, i, j);
-// }  
-
+// }
 
 // вышло без 1 секунды
+
+// -----------------2 variant------------------
+
+// let hours = 0;
+// let minutes = 0;
+// let seconds = 0;
+// while (hours < 3) {
+//     while (minutes < 60) {
+//         while (seconds < 60) {
+//             if (hours < 10) {
+//                 hours = '0' + hours;
+//             }
+//             if (minutes < 10) {
+//                 minutes = '0' + minutes;
+//             }
+//             if (seconds < 10) {
+//                 seconds = '0' + seconds;
+//             }
+//             let clock = hours + ':' + minutes + ':' + seconds;
+//             console.log(clock);
+//             hours = parseInt(hours);
+//             minutes = parseInt(minutes);
+//             seconds = parseInt(seconds);
+//             seconds++
+//         }
+//         seconds = 0;
+//         minutes++
+//         if (hours === 2 && minutes === 21){
+//             minutes = 60;
+//         }
+//         if(hours === 2 && minutes === 20){
+//             seconds = 61;
+//         }
+//     }
+//     minutes = 0;
+//     hours++
+// }
+
+// -------------****************-----------------
+debugger
+for (h = 0; h < 3; h++) {
+    for (m = 0; m < 60; m++) {
+        for (s = 0; s < 60; s++) {
+            if (h < 3 && m < 20 ) {
+                console.log(h, m, s);
+            }
+
+        }
+    }
+}
+
 
 // Додатково
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for зібрати всі букви в слово.
@@ -428,7 +489,7 @@ for (let i = 0; i < 3; i++) {
 // console.log(ttt);
 
 
-// ============
+// ============ СТАРАЯ ПРОГРАММА - ДЗ
 
 // зробити масив з 10 чисел [2,17,13,6,22,31,45,66,100,-18]та:
 // 1. перебрати його циклом while
@@ -446,7 +507,8 @@ for (let i = 0; i < 3; i++) {
 // - заповнити його 50 непарними числами за допомоги циклу.
 
 
-// 1
+// 1 ================== СТАРАЯ ПРОГРАММА - КЛАСС
+
 //  створити пустий масив та :
 // 1. заповнити його 50 парними числами за допомоги циклу.
 // 2. заповнити його 50 непарними числами за допомоги циклу.
@@ -464,3 +526,66 @@ for (let i = 0; i < 3; i++) {
 // 3 створити масив з рандомними значеннями, помножити всі його елементи на 5 та перемістити їх в інший масив.
 // 4 створити масив з будь якими значеннями (стрінги, числа, і тд...). пройтись по ньому, і якщо об'єкт є числом,
 //  додати його в інший масив.
+
+
+// let obj = {
+//     a: 1,
+//     cv: 5, 
+//     fff: 3
+// };
+
+// let keys = Object.keys(obj);
+// let values = Object.values(obj);
+// let all = Object.assign(obj);
+
+// console.log(keys);
+// console.log(values);
+// console.log(all);
+// console.log(obj, 'this is object');
+
+// найти уникальное значение( и записать в объект)ж
+
+let arr = [1, 5, 6, 6, 1, 8, 0, 4, 4, 5];
+let obj = {};
+
+for (const i of arr) {
+    obj[i] ? obj[i]++ : obj[i] = 1;  
+}
+console.log(obj);
+
+let keys = Object.keys(obj);
+console.log(keys);
+console.log(keys['2']);
+
+// for (const key of keys) {
+//     if (obj[key] > 1) {
+//         delete obj[key];
+//     }
+// }  
+
+// console.log(obj);
+// // ******************or
+for (const key in obj) {
+    if (obj[key] > 1) {
+        delete obj[key];
+    }
+}
+
+console.log(obj);
+
+    // let obj2 = {
+    //     name: 'gerard',
+    //     age: 28
+    // }
+
+    // let keysObj2 = Object.keys(obj2);
+    // console.log(keysObj2);
+
+    // for (const key2 of keysObj2) {
+    //     if (obj2[key2] !== 28 ) {
+    //         delete obj2[key2]
+    //     }
+    // }
+
+    // console.log(obj2);
+    // console.log(obj2[key2]);
