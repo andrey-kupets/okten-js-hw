@@ -166,22 +166,22 @@
 // Другий параметр визначає кліькіть ячеєк в кожній строці.
 // Третій параметр визначає елемент в який потрібно таблицю додати.
 
-const main = document.createElement('div');
-document.body.appendChild(main);
+// const main = document.createElement('div');
+// document.body.appendChild(main);
 
-const createTable = (row, data, main) => {
-    const table = document.createElement('table');
-    for (let i = 0; i < row; i++) {
-        const tr = document.createElement('tr');
-        for (let j = 0; j < data; j++) {
-            const td = document.createElement('td');
-            td.innerHTML = input3.value;
-            tr.appendChild(td);
-        }
-        table.appendChild(tr);
-    }
-    main.appendChild(table);
-}
+// const createTable = (row, data, main) => {
+//     const table = document.createElement('table');
+//     for (let i = 0; i < row; i++) {
+//         const tr = document.createElement('tr');
+//         for (let j = 0; j < data; j++) {
+//             const td = document.createElement('td');
+//             td.innerHTML = input3.value;
+//             tr.appendChild(td);
+//         }
+//         table.appendChild(tr);
+//     }
+//     main.appendChild(table);
+// }
 
 // createTable(2, 3, main);
 
@@ -189,31 +189,72 @@ const createTable = (row, data, main) => {
 // - Створити 3 инпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
 // При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
 // (Додатковачастина для завдання)
-const input1 = document.createElement('input');
-input1.id = 'input1';
-input1.name = 'name1';
-input1.type = 'number';
-const input2 = document.createElement('input');
-input2.id = 'input2';
-input2.name = 'name2';
-input2.type = 'number';
-const input3= document.createElement('input');
-input3.id = 'input3';
-input3.name = 'name3';
-input3.type = 'text';
-document.body.appendChild(input1);
-document.body.appendChild(input2);
-document.body.appendChild(input3);
+// const input1 = document.createElement('input');
+// input1.id = 'input1';
+// input1.name = 'name1';
+// input1.type = 'number';
+// const input2 = document.createElement('input');
+// input2.id = 'input2';
+// input2.name = 'name2';
+// input2.type = 'number';
+// const input3= document.createElement('input');
+// input3.id = 'input3';
+// input3.name = 'name3';
+// input3.type = 'text';
+// document.body.appendChild(input1);
+// document.body.appendChild(input2);
+// document.body.appendChild(input3);
 
-const btn = document.createElement('button');
-btn.innerText = 'BUTTON';
-document.body.appendChild(btn);
+// const btn = document.createElement('button');
+// btn.innerText = 'BUTTON';
+// document.body.appendChild(btn);
 
-btn.onclick = ev => {
-    createTable(input1.value, input2.value, main);
+// btn.onclick = ev => {
+//     createTable(input1.value, input2.value, main);
+// }
+
+// - Напишите «Карусель» – ленту изображений, которую можно листать 
+// влево-вправо нажатием на стрелочки.
+
+let images = [{id: 1, address: 'images/200px-Indiana_Jones_in_Raiders_of_the_Lost_Ark.jpg'},
+            {id: 2, address: 'images/220px-Fleming007impression.jpg'}, 
+            {id: 3, address: 'images/carlson.jpg'}, 
+            {id: 4, address: 'images/Neo2.jpg'},
+            {id: 5, address: 'images/saylor_papay.jpg'},
+            {id: 6, address: 'images/winni.jpg'}];
+const main = document.createElement('div');
+const img = document.createElement('img');
+img.style.width = '300px';
+img.style.height = '300px';
+img.src = images[0].address;
+
+const btnLeft = document.createElement('button');
+btnLeft.innerText = 'LEFT';
+const btnRight = document.createElement('button');
+btnRight.innerText = 'RIGHT';
+
+main.appendChild(img);
+document.body.appendChild(main);
+
+document.body.appendChild(btnLeft);
+document.body.appendChild(btnRight);
+
+
+
+let currentIndex = 0;
+btnLeft.onclick = () => {
+        currentIndex - 1 < 0 ?
+            currentIndex = images.length - 1 :
+            currentIndex = currentIndex - 1;
+        img.src = images[currentIndex].address;
 }
 
-// - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
+btnRight.onclick = () => {
+        currentIndex + 1 > images.length - 1 ?
+            currentIndex = 0: 
+            currentIndex = currentIndex + 1
+        img.src = images[currentIndex].address;
+}
 
 
 // - Сворити масив не цензцрних слів.
