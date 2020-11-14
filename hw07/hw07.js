@@ -216,46 +216,45 @@
 // - Напишите «Карусель» – ленту изображений, которую можно листать 
 // влево-вправо нажатием на стрелочки.
 
-let images = [{id: 1, address: 'images/200px-Indiana_Jones_in_Raiders_of_the_Lost_Ark.jpg'},
-            {id: 2, address: 'images/220px-Fleming007impression.jpg'}, 
-            {id: 3, address: 'images/carlson.jpg'}, 
-            {id: 4, address: 'images/Neo2.jpg'},
-            {id: 5, address: 'images/saylor_papay.jpg'},
-            {id: 6, address: 'images/winni.jpg'}];
-const main = document.createElement('div');
-const img = document.createElement('img');
-img.style.width = '300px';
-img.style.height = '300px';
-img.src = images[0].address;
+// let images = [{id: 1, address: 'images/200px-Indiana_Jones_in_Raiders_of_the_Lost_Ark.jpg'},
+//             {id: 2, address: 'images/220px-Fleming007impression.jpg'}, 
+//             {id: 3, address: 'images/carlson.jpg'}, 
+//             {id: 4, address: 'images/Neo2.jpg'},
+//             {id: 5, address: 'images/saylor_papay.jpg'},
+//             {id: 6, address: 'images/winni.jpg'}];
+// const main = document.createElement('div');
+// const img = document.createElement('img');
+// img.style.width = '300px';
+// img.style.height = '300px';
+// img.src = images[0].address;
 
-const btnLeft = document.createElement('button');
-btnLeft.innerText = 'LEFT';
-const btnRight = document.createElement('button');
-btnRight.innerText = 'RIGHT';
+// const btnLeft = document.createElement('button');
+// btnLeft.innerText = 'LEFT';
+// const btnRight = document.createElement('button');
+// btnRight.innerText = 'RIGHT';
 
-main.appendChild(img);
-document.body.appendChild(main);
+// main.appendChild(img);
+// document.body.appendChild(main);
 
-document.body.appendChild(btnLeft);
-document.body.appendChild(btnRight);
+// document.body.appendChild(btnLeft);
+// document.body.appendChild(btnRight);
 
 
 
-let currentIndex = 0;
-btnLeft.onclick = () => {
-        currentIndex - 1 < 0 ?
-            currentIndex = images.length - 1 :
-            currentIndex = currentIndex - 1;
-        img.src = images[currentIndex].address;
-}
+// let currentIndex = 0;
+// btnLeft.onclick = () => {
+//         currentIndex - 1 < 0 ?
+//             currentIndex = images.length - 1 :
+//             currentIndex = currentIndex - 1;
+//         img.src = images[currentIndex].address;
+// }
 
-btnRight.onclick = () => {
-        currentIndex + 1 > images.length - 1 ?
-            currentIndex = 0: 
-            currentIndex = currentIndex + 1
-        img.src = images[currentIndex].address;
-}
-
+// btnRight.onclick = () => {
+//         currentIndex + 1 > images.length - 1 ?
+//             currentIndex = 0: 
+//             currentIndex = currentIndex + 1
+//         img.src = images[currentIndex].address;
+// }
 
 // - Сворити масив не цензцрних слів.
 // Сворити інпут текстового типу.
@@ -263,6 +262,26 @@ btnRight.onclick = () => {
 // кинути алерт з попередженням.
 // Перевірку робити при натисканні на кнопку
 
+// const badWords = ['faka', 'shit', 'deadfish', 'nark', 'shiza'];
+// const input = document.createElement('input');
+// input.type = 'text';
+
+// const btn = document.createElement('button'); 
+// btn.innerText = 'CHECK';
+
+// document.body.appendChild(input);
+// document.body.appendChild(btn);
+
+
+// btn.onclick = () => {
+//     for (const i of badWords) {
+//         if (input.value === i) {
+//             alert("DON'T INPUT THIS WORD")
+//         } else {
+//             input.value = '';
+//         }
+//     }
+// }
 
 // - Сворити масив не цензцрних слів.
 // Сворити інпут текстового типу.
@@ -270,31 +289,116 @@ btnRight.onclick = () => {
 // Кинути алерт з попередженням у випадку якщо містить.
 // Перевірку робити при натисканні на кнопку
 
+// btn.onclick = () => {
+//     for (const i of badWords) {
+//         if (input.value.includes(i)) {
+//             alert("DON'T INPUT THIS WORD")
+//         } else {
+//             input.value = '';
+//         }
+//     }
+// }
 
 
 // -- создать скрипт, который берет считывает на странице (rules.html) текст и делает сбоку меню-оглавление по всем заголовкам которые есть в тексте.
 // При клике на пункт оглавления вы должны отправляться к этому пункту в тексте
 
+// const content = document.querySelector('#content');
+// const wrap = document.querySelector('#wrap');
+// const dataH2 = document.querySelectorAll('h2');
+// console.log(dataH2);
+// const ul = document.createElement('ul');
+
+// for (let i = 0; i < dataH2.length; i++) {
+//     const li = document.createElement('li');
+//     const a = document.createElement('a');
+//     let link = 'link' + i;
+//     a.href = '#' + link;
+//     dataH2[i].setAttribute('id', link);
+//     a.innerHTML = dataH2[i].innerText;
+//     li.appendChild(a);
+//     ul.appendChild(li);
+// }
+
+// content.appendChild(ul);
+
+// content.style.width = '30%';
+// content.style.float = 'left';
+// wrap.style.width = '70%';
+// wrap.style.float = 'left';
+
 // -- взять массив пользователей
-// let usersWithAddress = [
-//                 {id:1,name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
-//                 {id:2,name: 'petya', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 1}},
-//                 {id:3,name: 'kolya', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}},
-//                 {id:4,name: 'olya', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 90}},
-//                 {id:5,name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 115}},
-//                 {id:6,name: 'anya', age: 31, status: false, address: {city: 'Kyiv', street: 'Shevchenko', number: 2}},
-//                 {id:7,name: 'oleg', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 22}},
-//                 {id:8,name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}},
-//                 {id:9,name: 'masha', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 12}},
-//                 {id:10,name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
-//                 {id:11,name: 'max', age: 31, status: true, address: {city: 'Ternopil', street: 'Shevchenko', number: 121}}
-//             ];
+let usersWithAddress = [
+                {id:1,name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
+                {id:2,name: 'petya', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 1}},
+                {id:3,name: 'kolya', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}},
+                {id:4,name: 'olya', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 90}},
+                {id:5,name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 115}},
+                {id:6,name: 'anya', age: 31, status: false, address: {city: 'Kyiv', street: 'Shevchenko', number: 2}},
+                {id:7,name: 'oleg', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 22}},
+                {id:8,name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}},
+                {id:9,name: 'masha', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 12}},
+                {id:10,name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
+                {id:11,name: 'max', age: 31, status: true, address: {city: 'Ternopil', street: 'Shevchenko', number: 121}}
+            ];
 // Создать три чекбокса. Каждый из них активирует фильтр для вышеуказаного массива. Фильтры могут работать как вместе так и по отдельности.
 // 1й - отфильтровывает пользователей со статусом false (осталяет со статусом false)
 // 2й - оставляет старше 29 лет включительно
 // 3й - оставляет тех у кого город киев
 // Данные выводить в документ
 
+const content = document.querySelector('#content');
+const users = document.createElement('div');
+users.className = 'users';
+users.appendChild(render(usersWithAddress));
+
+const input1 = document.createElement('input');
+const input2 = document.createElement('input');
+const input3 = document.createElement('input');
+input1.type = 'checkbox';
+input2.type = 'checkbox';
+input3.type = 'checkbox';
+
+const label1 = document.createElement('label');
+const label2 = document.createElement('label');
+const label3 = document.createElement('label');
+
+label1.innerText = 'статус false';
+label2.innerText = 'старше 29 лет';
+label3.innerText = 'город киев';
+
+const btn = document.createElement('button');
+btn.innerText = 'SET FILTER';
+content.appendChild(users);
+content.appendChild(label1);
+content.appendChild(input1);
+content.appendChild(label2);
+content.appendChild(input2);
+content.appendChild(label3);
+content.appendChild(input3);
+content.appendChild(btn);
+
+btn.onclick = () => {
+    let myArray = JSON.parse(JSON.stringify(usersWithAddress));
+
+    if (input1.checked) myArray = myArray.filter(value => !value.status);
+    if (input2.checked) myArray = myArray.filter(value => value.age >= 29);
+    if (input3.checked) myArray = myArray.filter(value => value.address.city === 'Kyiv');
+
+    users.innerHTML = '';
+    users.appendChild(render(myArray));
+}
+
+function render(array) {
+    const main = document.createElement('div');
+    main.className = 'mainBlock';
+    array.forEach(user => {
+        const div = document.createElement('div');
+        div.innerHTML = JSON.stringify(user);
+        main.appendChild(div);
+    });
+    return main;
+}
 
 
 // *****(Прям овердоз с рекурсией) Создать функцию которая принимает какой-либо элемент DOM-структуры .Функция создает в боди 2 кнопки (назад/вперед)
