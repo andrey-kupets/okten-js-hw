@@ -356,6 +356,14 @@ console.log(cars);
 // })
 // console.log(increasePowerCars);
 
+// от Юры (возвращает уже урезанный массив):
+
+// halfPark.forEach((car, index) => {
+//     car.owner = newOwners[index];
+// })
+// console.log(halfPark);
+
+
 // Для початку вкладіть всі наші створені автомобілі в масив cars.
 
 // уже сделано
