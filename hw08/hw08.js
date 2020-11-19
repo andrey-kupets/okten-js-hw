@@ -15,101 +15,155 @@
 // Сделайте так, чтобы при следующем заходе на страницу введенные им ранее данные стояли на своих местах.
 // Сделайте ваш скрипт как можно более универсальным.
 
-const form = document.createElement('form');
-const textArea = document.createElement('textarea');
+// -----------------блок создания элементов---------------------
 
-const select = document.createElement('select');
-const option1 = document.createElement('option');
-option1.innerText = 'text1';
-const option2 = document.createElement('option');
-option2.innerText = 'text2';
-const option3 = document.createElement('option');
-option3.innerText = 'text3';
+// //const form = document.createElement('form'); // в хтмл
+// const form = document.getElementById('form');
+// form.style.width = '180px';
+// const textArea = document.createElement('textarea');
+// textArea.id = 'textArea';
+// const select = document.createElement('select');
+// select.id = 'select';
+// const option1 = document.createElement('option');
+// option1.innerText = 'text1';
+// const option2 = document.createElement('option');
+// option2.innerText = 'text2';
+// const option3 = document.createElement('option');
+// option3.innerText = 'text3';
 
-const input1 = document.createElement('input');
-input1.type = 'text';
-const input2 = document.createElement('input');
-input2.type = 'number';
-const input3 = document.createElement('input');
-input3.type = 'checkbox';
-input3.name = 'check111';
-input3.checked = 'checked1';
-const input4 = document.createElement('input');
-input4.type = 'checkbox';
-input4.name = 'check111';
-const input5 = document.createElement('input');
-input5.type = 'radio';
-input5.checked = 'checked2';
-input5.name = 'radio111';
-const input6 = document.createElement('input');
-input6.type = 'radio';
-input6.name = 'radio111';
-const btn = document.createElement('button');
-btn.type = 'submit';
-btn.innerText = "got it";
+// const input1 = document.createElement('input');
+// input1.type = 'text';
+// input1.id = 'input1';
+// input1.name = 'input1'
+// const input2 = document.createElement('input');
+// input2.type = 'number';
+// input2.id = 'input2';
+// input2.name = 'input2'
+// const input3 = document.createElement('input');
+// input3.type = 'checkbox';
+// input3.name = 'input3';
+// input3.id = 'input3';
+// // // input3.value = 'false';
+// const input4 = document.createElement('input');
+// input4.type = 'checkbox';
+// input4.name = 'input4';
+// input4.id = 'input4';
+// // //input4.value = 'false';
+// const input5 = document.createElement('input');
+// input5.type = 'radio';
+// input5.name = 'radio';
+// input5.id = 'input5';
+// // //input5.value = 'false';
+// const input6 = document.createElement('input');
+// input6.type = 'radio';
+// input6.name = 'radio';
+// input6.id = 'input6';
+// // //input6.value = 'false';
 
-select.appendChild(option1);
-select.appendChild(option2);
-select.appendChild(option3);
+// const btn = document.createElement('button');
+// btn.type = 'submit';
+// btn.innerText = "got it";
 
-form.appendChild(select);
-form.appendChild(textArea);
-form.appendChild(input1);
-form.appendChild(input2);
-form.appendChild(input3);
-form.appendChild(input4);
-form.appendChild(input5);
-form.appendChild(input6);
-form.appendChild(btn);
-document.body.appendChild(form);
+// select.appendChild(option1);
+// select.appendChild(option2);
+// select.appendChild(option3);
 
-textArea.oninput = () => {
-    localStorage.setItem('TEXT', textArea.value);
-}
-textArea.value = localStorage.getItem('TEXT');
+// form.appendChild(select);
+// form.appendChild(textArea);
+// form.appendChild(input1);
+// form.appendChild(input2);
+// form.appendChild(input3);
+// form.appendChild(input4);
+// form.appendChild(input5);
+// form.appendChild(input6);
+// // --------- //form.appendChild(btn);
+// document.body.appendChild(form);
+// form.appendChild(btn);
 
-input1.oninput = () => {
-    localStorage.setItem('input1', input1.value);
-}
-input1.value = localStorage.getItem('input1');
 
-input2.oninput = () => {
-    localStorage.setItem('input2', input2.value);
-}
-input2.value = localStorage.getItem('input2');
+// //-------------------блок функционала---------------------
 
-            //не получается с инпутами типа чекбокс и радио!!!!!!!
+// btn.onmouseover = () => {
+//     if(!textArea.value || !input1.value || !input2.value || !select.value)
+//     alert("don't forget to sign up all the form");
+// }
 
-input3.checked ? input3.value = true : input3.value = false;
-localStorage.setItem('input3', input3.value);
-input3.value = localStorage.getItem('input3', input3.value);
+// getDataForm(form);
 
-input4.checked ? input4.value = true : input4.value = false;
-localStorage.setItem('input4', input4.value);
-input4.value = localStorage.getItem('input4', input4.value);
+// function saveForm(params) {
+//     setDataForm(params);
+// }
 
-input5.checked ? input5.value = true : input5.value = false;
-localStorage.setItem('input5', input5.value);
-input5.value = localStorage.getItem('input5', input5.value);
+// function setDataForm (tag) {
+//     for (let i = 0; i < tag.length; i++) {
+//         const tagElement = tag[i];
+//         // //console.log(tagElement);
+//         if(tagElement.type === 'checkbox' || tagElement.type === 'radio')
+//         {tagElement.checked ? tagElement.value = true : tagElement.value = false;}
 
-input6.checked ? input6.value = true : input6.value = false;
-localStorage.setItem('input6', input6.value);
-input6.value = localStorage.getItem('input6', input6.value);
+//         localStorage.setItem(tagElement.id, tagElement.value);
+//     }
+// }
 
-select.oninput = () => {
-    localStorage.setItem('select', select.value);
-}
-select.value = localStorage.getItem('select');
-
-btn.onmouseover = () => {
-    if(!textArea.value || !input1.value || !input2.value || !select.value)
-    alert("don't forget to sign up all the form");
-}
+// function getDataForm(tag) {
+//     for (let i = 0; i < localStorage.length; i++) {
+//         if(localStorage.hasOwnProperty(tag.children[i].id)) {
+//             tag.children[i].value = localStorage.getItem(tag.children[i].id);
+//             if (tag.children[i].value === 'true') {
+//                 tag.children[i].setAttribute('checked', 'checked');
+//             }
+//         }
+        
+//     }
+// }
 
 
 // -Дан текстареа. В него можно ввести данные, нажать кнопку "сохранить" и они "фикисруются" (в хранилище), затем поредактировать их, затем еще поредактировать и возможно еще.....
 // Требование : хранить историю своих изменений (даже после перезагрузки страницы).
 // Сверху над текстареа должны появится стрелочки, с помощью которых можно перемещаться по истории (не забудьте!чекпоинт истории - нажатеи кнопки сохранить).
+
+// const text = document.querySelector("#text");
+// const left = document.querySelector("#inputLeft");
+// const right = document.querySelector("#inputRight");
+// const save = document.querySelector("#inputSave");
+
+// save.onclick = () => {
+//     localStorage.setItem(localStorage.length+1, text.value);
+// }
+
+// console.log(localStorage);
+
+// left.onclick = () => {
+//     right.style.visibility = 'visible';
+//     let index;
+//     for (const key in localStorage) {
+//         if(localStorage.hasOwnProperty(key)) {
+//             if(localStorage.getItem(key) === text.value)
+//             index = key;
+//         }
+//     }
+//     if (index === '1') {
+//         left.style.visibility = 'hidden';
+//         return;
+//     }
+//     text.value = localStorage.getItem(index - 1);
+// }
+
+// right.onclick = () => {
+//     left.style.visibility = 'visible';
+//     let index;
+//     for (const key in localStorage) {
+//         if(localStorage.hasOwnProperty(key)) {
+//             if(localStorage.getItem(key) === text.value)
+//             index = key;
+//         }
+//     }
+//     if (index === localStorage.length.toString()) {
+//         right.style.visibility = 'hidden';
+//         return;
+//     }
+//     text.value = localStorage.getItem(+index + 1);
+// }
 
 // - Реализуйте записную книгу, хранящую данные в локальном хранилище.
 // Данные которые надо сохранять : ФИО, номер, почта, фирма, отдел, день рождения
@@ -117,3 +171,7 @@ btn.onmouseover = () => {
 // --Каждому контакту добавить кнопку для удаления контакта.
 // --Каждому контакту добавить кнопку редактироваиня. При нажати на нее появляется форма, в которой есть все необходимые инпуты для редактирования, которые уже заполнены данными объекта
 
+let a = '6';
+let b = '1';
+console.log(a-b);
+console.log(a+b);
