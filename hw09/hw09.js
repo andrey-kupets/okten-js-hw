@@ -158,7 +158,7 @@
 //             return;
 //         }
 //         console.log("i'm free now");
-
+//         cb();
 //     }, 600)
 // }
 
@@ -188,138 +188,264 @@
 
 // // -----------------2 вариант с err, data
 
-function aDayInTheLife(temperature, cb) {
-    console.log('a new day has just begun!!');
-    console.log('the alarm has just rung');
-    setTimeout(() => {
-        if (temperature > 38) {
-            cb('stay in bed and call a doctor', null);
-            return;
-        }
-        cb(null, "what is the weather?");
-    }, 1000)
-};
+// function aDayInTheLife(temperature, cb) {
+//     console.log('a new day has just begun!!');
+//     console.log('the alarm has just rung');
+//     setTimeout(() => {
+//         if (temperature > 38) {
+//             cb('stay in bed and call a doctor', null);
+//             return;
+//         }
+//         cb(null, "what is the weather?");
+//     }, 1000)
+// };
 
-function whatWeather(degree, cb) {
-    setTimeout(() => {
-        if (degree < -30) {
-            cb('are u crazy?! No Work today!!!', null);
-            return;
-        }
-        cb(null, "Have you any products?");
-    }, 500)
-}
+// function whatWeather(degree, cb) {
+//     setTimeout(() => {
+//         if (degree < -30) {
+//             cb('are u crazy?! No Work today!!!', null);
+//             return;
+//         }
+//         cb(null, "Have you any products?");
+//     }, 500)
+// }
 
-function eat(products, whatToDo) {
-    setTimeout(() => {
-        if (products === "no") {
-            whatToDo('go to the shop and stay at home to cooking!!!', null);
-            return;
-        }
-        whatToDo(null, "Look into the cupboard and prepare your coat");
-    }, 700)
+// function eat(products, whatToDo) {
+//     setTimeout(() => {
+//         if (products === "no") {
+//             whatToDo('go to the shop and stay at home to cooking!!!', null);
+//             return;
+//         }
+//         whatToDo(null, "Look into the cupboard and prepare your coat");
+//     }, 700)
 
-}
+// }
 
-function coat(conditions, whatToDo) {
-    setTimeout(() => {
-        if (conditions === "no") {
-            whatToDo("wait until i'll buy a coat and return home", null);
-            return;
-        }
-        whatToDo(null, "you may go to work now");
-    }, 400)
+// function coat(conditions, whatToDo) {
+//     setTimeout(() => {
+//         if (conditions === "no") {
+//             whatToDo("wait until i'll buy a coat and return home", null);
+//             return;
+//         }
+//         whatToDo(null, "you may go to work now");
+//     }, 400)
     
-}
+// }
 
-function transport(conditions, info) {
-    setTimeout(() => {
-        if (conditions === "i missed the tram") {
-            info("This is not my day!!!!", null);
-            return;
-        }
-        info(null, "get to work");
-    }, 300)
+// function transport(conditions, info) {
+//     setTimeout(() => {
+//         if (conditions === "i missed the tram") {
+//             info("This is not my day!!!!", null);
+//             return;
+//         }
+//         info(null, "get to work");
+//     }, 300)
     
-}
+// }
 
-function dinnerBreak(time, someRest) {
-    setTimeout(() => {
-        if (time >= 12 && time <= 13 ) {
-            someRest("Have a rest....", null);
-            return;
-        }
-        someRest(null, "Boss says --- to work as a horse!!");
-    }, 1200)
+// function dinnerBreak(time, someRest) {
+//     setTimeout(() => {
+//         if (time >= 12 && time <= 13 ) {
+//             someRest("Have a rest....", null);
+//             return;
+//         }
+//         someRest(null, "Boss says --- to work as a horse!!");
+//     }, 1200)
     
-}
+// }
 
-function timeOut(time, info) {
-    setTimeout(() => {
-        if (time < 18) {
-            info('...time is money', null);
-            return;
-        }
-        info(null, "I'm free now!!!");
+// function timeOut(time, info) {
+//     setTimeout(() => {
+//         if (time < 18) {
+//             info('...time is money', null);
+//             return;
+//         }
+//         info(null, "I'm free now!!!");
 
-    }, 600)
-}
+//     }, 600)
+// }
 
 
-aDayInTheLife(37, (err, data) => {
-    if (err) {
-        console.log('wife said:', err);
-        return;
-    }
-    console.log(`look around: ${data}`);
-    whatWeather( -15, (err, data) => {
-        if (err) {
-            console.log('wife said:', err);
-            return;
-        } 
-        console.log('what will we do?', data);
-        console.log("U have to cook your breakfast");
-        eat('yes', (err, data) => {
-            if (err) {
-                console.log(err);
+// aDayInTheLife(37, (err, data) => {
+//     if (err) {
+//         console.log('wife said:', err);
+//         return;
+//     }
+//     console.log(`look around: ${data}`);
+//     whatWeather( -15, (err, data) => {
+//         if (err) {
+//             console.log('wife said:', err);
+//             return;
+//         } 
+//         console.log('what will we do?', data);
+//         console.log("U have to cook your breakfast");
+//         eat('yes', (err, data) => {
+//             if (err) {
+//                 console.log(err);
+//                 return;
+//             }
+//             console.log(`Hey! ${data}`);
+//             coat('yes', (err, data) => {
+//                 if (err) {
+//                     console.log(`wife said: ${err}`);
+//                     return;
+//                 }
+//                 console.log(`Oh, that's it. ${data}`);
+//                 transport('i caught the tram', (err, data) => {
+//                     if (err) {
+//                         console.log(`Bad Luck!! ${err}`);
+//                         return;
+//                     }
+//                     console.log(data);
+//                     dinnerBreak(16, (err, data) => {
+//                         if (err) {
+//                             console.log(`${err}don't disturb`);
+//                             return;
+//                         }
+//                         console.log(`${data}... and boss is always right`);
+//                         timeOut(18, (err, data) => {
+//                             if (err) {
+//                                 console.log(err);
+//                                 return;
+//                             }
+//                             console.log(`At last!! ${data}`);
+//                             console.log("THE WORK DAY IS DONE!!!");
+//                         })
+//                     });
+//                 })
+//             });
+//         });
+//     });
+// })
+
+//  // --------------promise---------------------
+
+function aDayInTheLife(temperature) {
+    return new Promise((resolve, reject) => {
+        console.log('a new day has just begun!!');
+        console.log('the alarm has just rung');
+        setTimeout(() => {
+            if (temperature > 38) {
+                reject('stay in bed and call a doctor' );
                 return;
             }
-            console.log(`Hey! ${data}`);
-            coat('yes', (err, data) => {
-                if (err) {
-                    console.log(`wife said: ${err}`);
-                    return;
-                }
-                console.log(`Oh, that's it. ${data}`);
-                transport('i caught the tram', (err, data) => {
-                    if (err) {
-                        console.log(`Bad Luck!! ${err}`);
-                        return;
-                    }
-                    console.log(data);
-                    dinnerBreak(16, (err, data) => {
-                        if (err) {
-                            console.log(`${err}don't disturb`);
-                            return;
-                        }
-                        console.log(`${data}... and boss is always right`);
-                        timeOut(18, (err, data) => {
-                            if (err) {
-                                console.log(err);
-                                return;
-                            }
-                            console.log(`At last!! ${data}`);
-                            console.log("THE WORK DAY IS DONE!!!");
-                        })
-                    });
-                })
-            });
-        });
-    });
-})
+            resolve("look around: what is the weather?");
+    }, 1000)
+    })
+};
+
+function whatWeather(degree) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (degree < -30) {
+                reject('are u crazy?! No Work today!!!');
+                return;
+            }
+            resolve("Have you any products?");
+        }, 500)
+    })    
+}
+
+function eat(products) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (products === "no") {
+                reject('go to the shop and stay at home to cooking!!!');
+                return;
+            }
+            resolve("Look into the cupboard and prepare your coat");
+        }, 700)
+    })
+
+}
+
+function coat(conditions) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (conditions === "no") {
+                reject("wait until i'll buy a coat and return home");
+                return;
+            }
+            resolve("you may go to work now");
+        }, 400)
+    })
+}
+
+function transport(conditions) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (conditions === "i missed the tram") {
+                reject("This is not my day!!!!");
+                return;
+            }
+            resolve("get to work");
+        }, 300)
+    })
+}
+
+function dinnerBreak(time) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (time >= 12 && time <= 13 ) {
+                reject("Have a rest....don't disturb");
+                return;
+            }
+            resolve("Boss says --- to work as a horse!!");
+        }, 1200)
+    })
+}
+
+function timeOut(time) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (time < 18) {
+                reject('...time is money');
+                return;
+            }
+            resolve("i'm free now");
+        }, 600)
+    })    
+}
 
 
-
+aDayInTheLife(37)
+    .then(value => {
+        console.log(value);
+        return whatWeather();
+    })
+    .then(value => {
+        console.log("U have to cook your breakfast");
+        console.log(value);
+        return eat();
+    })
+    .then(value => {
+        console.log(value);
+        return coat();
+    })
+    .then(value => {
+        console.log(value);
+        return transport();
+    })
+    .then(value => {
+        console.log(value);
+        return dinnerBreak();
+    })        
+    .then(value => {
+        console.log(value);
+        return timeOut(); 
+    })
+    .then(value => {
+        console.log(value);
+        console.log("THE WORK DAY IS DONE!!!")// finally?
+    })  
+    .catch(err => {
+        console.log('-----------------')
+        console.log(err)
+        console.log('-----------------')})  
+    .finally(() => {
+        console.log("THAT'S THE END OF A TASK");
+    })
+    
 
 
 
