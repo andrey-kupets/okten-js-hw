@@ -98,22 +98,47 @@
 //   вивести їх в браузер. Помістити кожен окремий об'єкт в блок,
 //    при цьому кожен внутрішній об'єкт в свій блок (блок в блоці).
 
-let users = [];
+// let users = [];
 
 fetch('https://jsonplaceholder.typicode.com/users')
-    .then(response => response.json())
-    .then(result => users = result)    
+    .then(response => {
+        return response.json();
+    })
+    .then(users => {
+        // users = response;
+        console.log(users);
+        users.forEach(({name, username, email, address, phone, website, company}) => {
+            const user = document.createElement('div');
+            const property1 = document.createElement('div');
+            const property2 = document.createElement('div');
+            const property3 = document.createElement('div');
+            const property4 = document.createElement('div');
+            const property5 = document.createElement('div');
+            const property6 = document.createElement('div');
+            const property7 = document.createElement('div');
+            property1.innerText = `${name};`;
+            property2.innerText = `${username};`;
+            property3.innerText = `${email};`;
+            property4.innerText = `${address};`;
+            property5.innerText = `${phone};`;
+            property6.innerText = `${website};`;
+            property7.innerText = `${company};`;
+            const br = document.createElement('br');
+            user.appendChild(property1);
+            user.appendChild(property2);
+            user.appendChild(property3);
+            user.appendChild(property4);
+            user.appendChild(property5);
+            user.appendChild(property6);
+            user.appendChild(property7);
+            user.appendChild(br);
 
-console.log(users);
 
-for (let i = 0; i < users; i++) {
-    const user = users[i];
+            document.body.appendChild(user);
+            console.log(user);
+        }); 
 
-    let div = document.createElement('div');
-    div.appendChild(`${user}`);
-    document.body.appendChild(div);
-}
-
+    })    
 
 // *** за допомогою fetch (як в прикладі) отримати від jsonplaceholder всі posts. За допомогою document.createElement вивести їх в браузер. Помістити кожен окремий об'єкт в блок, при цьому кожен внутрішній об'єкт(якщо він існує) в свій блок (блок в блоці).
 // *** за допомогою fetch (як в прикладі) отримати від jsonplaceholder всі comments. За допомогою document.createElement вивести їх в браузер. Помістити кожен окремий об'єкт в блок, при цьому кожен внутрішній об'єкт(якщо він існує) в свій блок (блок в блоці).

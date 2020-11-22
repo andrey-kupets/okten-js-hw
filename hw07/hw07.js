@@ -328,77 +328,77 @@
 // wrap.style.float = 'left';
 
 // -- взять массив пользователей
-let usersWithAddress = [
-                {id:1,name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
-                {id:2,name: 'petya', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 1}},
-                {id:3,name: 'kolya', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}},
-                {id:4,name: 'olya', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 90}},
-                {id:5,name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 115}},
-                {id:6,name: 'anya', age: 31, status: false, address: {city: 'Kyiv', street: 'Shevchenko', number: 2}},
-                {id:7,name: 'oleg', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 22}},
-                {id:8,name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}},
-                {id:9,name: 'masha', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 12}},
-                {id:10,name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
-                {id:11,name: 'max', age: 31, status: true, address: {city: 'Ternopil', street: 'Shevchenko', number: 121}}
-            ];
-// Создать три чекбокса. Каждый из них активирует фильтр для вышеуказаного массива. Фильтры могут работать как вместе так и по отдельности.
-// 1й - отфильтровывает пользователей со статусом false (осталяет со статусом false)
-// 2й - оставляет старше 29 лет включительно
-// 3й - оставляет тех у кого город киев
-// Данные выводить в документ
+// let usersWithAddress = [
+//                 {id:1,name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
+//                 {id:2,name: 'petya', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 1}},
+//                 {id:3,name: 'kolya', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}},
+//                 {id:4,name: 'olya', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 90}},
+//                 {id:5,name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 115}},
+//                 {id:6,name: 'anya', age: 31, status: false, address: {city: 'Kyiv', street: 'Shevchenko', number: 2}},
+//                 {id:7,name: 'oleg', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 22}},
+//                 {id:8,name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}},
+//                 {id:9,name: 'masha', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 12}},
+//                 {id:10,name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
+//                 {id:11,name: 'max', age: 31, status: true, address: {city: 'Ternopil', street: 'Shevchenko', number: 121}}
+//             ];
+// // Создать три чекбокса. Каждый из них активирует фильтр для вышеуказаного массива. Фильтры могут работать как вместе так и по отдельности.
+// // 1й - отфильтровывает пользователей со статусом false (осталяет со статусом false)
+// // 2й - оставляет старше 29 лет включительно
+// // 3й - оставляет тех у кого город киев
+// // Данные выводить в документ
 
-const content = document.querySelector('#content');
-const users = document.createElement('div');
-users.className = 'users';
-users.appendChild(render(usersWithAddress));
+// const content = document.querySelector('#content');
+// const users = document.createElement('div');
+// users.className = 'users';
+// users.appendChild(render(usersWithAddress));
 
-const input1 = document.createElement('input');
-const input2 = document.createElement('input');
-const input3 = document.createElement('input');
-input1.type = 'checkbox';
-input2.type = 'checkbox';
-input3.type = 'checkbox';
+// const input1 = document.createElement('input');
+// const input2 = document.createElement('input');
+// const input3 = document.createElement('input');
+// input1.type = 'checkbox';
+// input2.type = 'checkbox';
+// input3.type = 'checkbox';
 
-const label1 = document.createElement('label');
-const label2 = document.createElement('label');
-const label3 = document.createElement('label');
+// const label1 = document.createElement('label');
+// const label2 = document.createElement('label');
+// const label3 = document.createElement('label');
 
-label1.innerText = 'статус false';
-label2.innerText = 'старше 29 лет';
-label3.innerText = 'город киев';
+// label1.innerText = 'статус false';
+// label2.innerText = 'старше 29 лет';
+// label3.innerText = 'город киев';
 
-const btn = document.createElement('button');
-btn.innerText = 'SET FILTER';
-content.appendChild(users);
-content.appendChild(label1);
-content.appendChild(input1);
-content.appendChild(label2);
-content.appendChild(input2);
-content.appendChild(label3);
-content.appendChild(input3);
-content.appendChild(btn);
+// const btn = document.createElement('button');
+// btn.innerText = 'SET FILTER';
+// content.appendChild(users);
+// content.appendChild(label1);
+// content.appendChild(input1);
+// content.appendChild(label2);
+// content.appendChild(input2);
+// content.appendChild(label3);
+// content.appendChild(input3);
+// content.appendChild(btn);
 
-btn.onclick = () => {
-    let myArray = JSON.parse(JSON.stringify(usersWithAddress));
+// btn.onclick = () => {
+//     let myArray = JSON.parse(JSON.stringify(usersWithAddress));
 
-    if (input1.checked) myArray = myArray.filter(value => !value.status);
-    if (input2.checked) myArray = myArray.filter(value => value.age >= 29);
-    if (input3.checked) myArray = myArray.filter(value => value.address.city === 'Kyiv');
+//     if (input1.checked) myArray = myArray.filter(value => !value.status);
+//     if (input2.checked) myArray = myArray.filter(value => value.age >= 29);
+//     if (input3.checked) myArray = myArray.filter(value => value.address.city === 'Kyiv');
 
-    users.innerHTML = '';
-    users.appendChild(render(myArray));
-}
+//     users.innerHTML = '';
+//     users.appendChild(render(myArray));
+// }
 
-function render(array) {
-    const main = document.createElement('div');
-    main.className = 'mainBlock';
-    array.forEach(user => {
-        const div = document.createElement('div');
-        div.innerHTML = JSON.stringify(user);
-        main.appendChild(div);
-    });
-    return main;
-}
+// function render(array) {
+//     const main = document.createElement('div');
+//     main.className = 'mainBlock';
+//     array.forEach(user => {
+//         const div = document.createElement('div');
+//         div.innerHTML = JSON.stringify(user);
+//         main.appendChild(div);
+//     });
+//     return main;
+// }
 
 
 // *****(Прям овердоз с рекурсией) Создать функцию которая принимает какой-либо элемент DOM-структуры .Функция создает в боди 2 кнопки (назад/вперед)
