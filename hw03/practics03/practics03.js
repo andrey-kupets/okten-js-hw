@@ -107,7 +107,7 @@ fetch('https://jsonplaceholder.typicode.com/users')
     .then(users => {
         // users = response;
         console.log(users);
-        users.forEach(({name, username, email, address, phone, website, company}) => {
+        users.forEach(({name, username, email, address: {street, suite, city, zipcode, geo: {lat, lng}}, phone, website, company: {name: nameCompany, catchPhrase, bs}}) => {
             const user = document.createElement('div');
             const property1 = document.createElement('div');
             const property2 = document.createElement('div');
@@ -116,13 +116,19 @@ fetch('https://jsonplaceholder.typicode.com/users')
             const property5 = document.createElement('div');
             const property6 = document.createElement('div');
             const property7 = document.createElement('div');
+            const pre1Property7 = document.createElement('div');
+            const pre2Property7 = document.createElement('div');
+            const pre3Property7 = document.createElement('div');
             property1.innerText = `${name};`;
             property2.innerText = `${username};`;
             property3.innerText = `${email};`;
-            property4.innerText = `${address};`;
+            property4.innerText = `address: ${street}, ${suite}; ${city}; ${zipcode}; geo: ${lat}; ${lng};`;
             property5.innerText = `${phone};`;
             property6.innerText = `${website};`;
-            property7.innerText = `${company};`;
+            property7.innerText = `company:`;
+            pre1Property7.innerText = `---${nameCompany};`;
+            pre2Property7.innerText = `---${catchPhrase};`
+            pre3Property7.innerText = `---${bs};`;
             const br = document.createElement('br');
             user.appendChild(property1);
             user.appendChild(property2);
@@ -131,6 +137,10 @@ fetch('https://jsonplaceholder.typicode.com/users')
             user.appendChild(property5);
             user.appendChild(property6);
             user.appendChild(property7);
+            property7.appendChild(pre1Property7);
+            property7.appendChild(pre2Property7);
+            property7.appendChild(pre3Property7);
+
             user.appendChild(br);
 
 
