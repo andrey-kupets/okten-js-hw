@@ -449,131 +449,247 @@
 
     // // --------------------async await------------------
 
-    function aDayInTheLife(temperature) {
-        return new Promise((resolve, reject) => {
-            console.log('A new day has just begun!!');
-            console.log('The alarm has just rung');
-            setTimeout(() => {
-                if (temperature > 38) {
-                    reject('Stay in bed and call a doctor' );
-                    return;
-                }
-                resolve("Look around: what is the weather?");
-        }, 1000)
-        })
-    };
+//     function aDayInTheLife(temperature) {
+//         return new Promise((resolve, reject) => {
+//             console.log('A new day has just begun!!');
+//             console.log('The alarm has just rung');
+//             setTimeout(() => {
+//                 if (temperature > 38) {
+//                     reject('Stay in bed and call a doctor' );
+//                     return;
+//                 }
+//                 resolve("Look around: what is the weather?");
+//         }, 1000)
+//         })
+//     };
     
-    function whatWeather(degree) {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                if (degree < -30) {
-                    reject('Are u crazy?! No work today!!!');
-                    return;
-                }
-                resolve("Have you any products?");
-            }, 500)
-        })    
-    }
+//     function whatWeather(degree) {
+//         return new Promise((resolve, reject) => {
+//             setTimeout(() => {
+//                 if (degree < -30) {
+//                     reject('Are u crazy?! No work today!!!');
+//                     return;
+//                 }
+//                 resolve("Have you any products?");
+//             }, 500)
+//         })    
+//     }
     
-    function eat(products) {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                if (products === "no") {
-                    reject('Go to the shop and stay at home to cooking!!!');
-                    return;
-                }
-                resolve("Look into the cupboard and prepare your coat");
-            }, 700)
-        })
+//     function eat(products) {
+//         return new Promise((resolve, reject) => {
+//             setTimeout(() => {
+//                 if (products === "no") {
+//                     reject('Go to the shop and stay at home to cooking!!!');
+//                     return;
+//                 }
+//                 resolve("Look into the cupboard and prepare your coat");
+//             }, 700)
+//         })
     
-    }
+//     }
     
-    function coat(conditions) {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                if (conditions === "no") {
-                    reject("Wait until i'll buy a coat and return home");
-                    return;
-                }
-                resolve("You may go to work now");
-            }, 400)
-        })
-    }
+//     function coat(conditions) {
+//         return new Promise((resolve, reject) => {
+//             setTimeout(() => {
+//                 if (conditions === "no") {
+//                     reject("Wait until i'll buy a coat and return home");
+//                     return;
+//                 }
+//                 resolve("You may go to work now");
+//             }, 400)
+//         })
+//     }
     
-    function transport(conditions) {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                if (conditions === "I missed the tram") {
-                    reject("This is not my day!!!!");
-                    return;
-                }
-                resolve("Get to work");
-            }, 300)
-        })
-    }
+//     function transport(conditions) {
+//         return new Promise((resolve, reject) => {
+//             setTimeout(() => {
+//                 if (conditions === "I missed the tram") {
+//                     reject("This is not my day!!!!");
+//                     return;
+//                 }
+//                 resolve("Get to work");
+//             }, 300)
+//         })
+//     }
     
-    function dinnerBreak(time) {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                if (time >= 12 && time <= 13 ) {
-                    reject("Have a rest....don't disturb");
-                    return;
-                }
-                resolve("Boss says --- to work as a horse!!");
-            }, 1200)
-        })
-    }
+//     function dinnerBreak(time) {
+//         return new Promise((resolve, reject) => {
+//             setTimeout(() => {
+//                 if (time >= 12 && time <= 13 ) {
+//                     reject("Have a rest....don't disturb");
+//                     return;
+//                 }
+//                 resolve("Boss says --- to work as a horse!!");
+//             }, 1200)
+//         })
+//     }
     
-    function timeOut(time) {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                if (time < 18) {
-                    reject('...time is money');
-                    return;
-                }
-                resolve("I'm free now");
-            }, 600)
-        })    
-    }    
+//     function timeOut(time) {
+//         return new Promise((resolve, reject) => {
+//             setTimeout(() => {
+//                 if (time < 18) {
+//                     reject('...time is money');
+//                     return;
+//                 }
+//                 resolve("I'm free now");
+//             }, 600)
+//         })    
+//     }    
 
-async function allDayLong() {
-    try {
-        const OneDayInTheLife = await aDayInTheLife(37);
-        console.log(OneDayInTheLife);
-        const ifWheather = await whatWeather(-15);
-        console.log("U have to cook your breakfast");
-        console.log(ifWheather);
-        const ifEat = await eat();
-        console.log(ifEat);
-        const ifCoat = await coat();
-        console.log(ifCoat);
-        const ifTransport = await transport();
-        console.log(ifTransport);
-        const ifDinnerBreak = await dinnerBreak();
-        console.log(ifDinnerBreak);
-        const ifTimeOut = await timeOut();
-        console.log(ifTimeOut);
-        console.log("The working day is done!!!")
-    } catch (error) {
-        console.log('*****************');
-        console.log(error);
-        console.log('*****************');
-    }
+// async function allDayLong() {
+//     try {
+//         const OneDayInTheLife = await aDayInTheLife(37);
+//         console.log(OneDayInTheLife);
+//         const ifWheather = await whatWeather(-15);
+//         console.log("U have to cook your breakfast");
+//         console.log(ifWheather);
+//         const ifEat = await eat();
+//         console.log(ifEat);
+//         const ifCoat = await coat();
+//         console.log(ifCoat);
+//         const ifTransport = await transport();
+//         console.log(ifTransport);
+//         const ifDinnerBreak = await dinnerBreak();
+//         console.log(ifDinnerBreak);
+//         const ifTimeOut = await timeOut();
+//         console.log(ifTimeOut);
+//         console.log("The working day is done!!!")
+//     } catch (error) {
+//         console.log('*****************');
+//         console.log(error);
+//         console.log('*****************');
+//     }
+// }
+
+// allDayLong();
+
+// Реалізувати друкарську машинку.
+//     У вас є текст "Hello World".
+//     Ваша функція має друкувати цей текст по 1 симоволу в браузері.
+//     КОЖНА нова буква має бути з РАНДОМНОЮ заутримкою від 0.1 до 1 секунди.
+//     Цим самим ви маєте симулювати написання даного тексту юзером.
+//     Приклад: "Hello"
+// Затримки:
+//     H (затримка 0.6)
+// e (затримка 0.1)
+// l (затримка 0.3)
+// l (затримка 0.7)
+// о (затримка 1)   
+
+function h() {
+    return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve('H');
+            }, 600);
+    })
 }
 
-allDayLong();
+function e() {
+    return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve('e');
+            }, 100);
+    })
+}
 
+function l() {
+    return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve('l');
+            }, 300);
+    })
+}
 
-    
-    // function init() {
-    //     var name = "Mozilla"; // name - локальная переменная, созданная в init
-    //     function displayName() { // displayName() - внутренняя функция, замыкание
-    //         alert (name); // displayName() использует переменную, объявленную в родительской функции    
-    //     }
-    //     displayName();    
-    // }
-    // init();
+function l2() {
+    return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve('l');
+            }, 700);
+    })
+}
 
+function o() {
+    return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve('o')
+            }, 1000);
+    })
+}
+
+function voidt() {
+    return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(' ')
+            }, 100);
+    })
+}
+
+function w() {
+    return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve('W')
+            }, 150);
+    })
+}
+
+function o2() {
+    return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve('o')
+            }, 400);
+    })
+}
+
+function r() {
+    return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve('r')
+            }, 300);
+    })
+}
+
+function l3() {
+    return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve('l')
+            }, 200);
+    })
+}
+
+function d() {
+    return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve('d')
+            }, 100);
+    })
+}
+
+async function printWord() {
+    const printH = await h();
+    document.write(printH);
+    const printE = await e();
+    document.write(printE);
+    const printL = await l();
+    document.write(printL);
+    const printL2 = await l2();
+    document.write(printL2);
+    const printO = await o();
+    document.write(printO);
+    const printvoid = await voidt();
+    document.write(printvoid);
+    const printW = await w();
+    document.write(printW);
+    const printO2 = await o2();
+    document.write(printO2);
+    const printR = await r();
+    document.write(printR);
+    const printL3 = await l3();
+    document.write(printL3);
+    const printD = await d();
+    document.write(printD);
+}
+
+printWord();
 
 
 
