@@ -580,7 +580,7 @@ function h() {
     return new Promise((resolve) => {
             setTimeout(() => {
                 resolve('H');
-            }, 600);
+            }, Math.random()*1000);
     })
 }
 
@@ -588,7 +588,7 @@ function e() {
     return new Promise((resolve) => {
             setTimeout(() => {
                 resolve('e');
-            }, 100);
+            }, Math.random()*1000);
     })
 }
 
@@ -596,7 +596,7 @@ function l() {
     return new Promise((resolve) => {
             setTimeout(() => {
                 resolve('l');
-            }, 300);
+            }, Math.random()*1000);
     })
 }
 
@@ -604,7 +604,7 @@ function l2() {
     return new Promise((resolve) => {
             setTimeout(() => {
                 resolve('l');
-            }, 700);
+            }, Math.random()*1000);
     })
 }
 
@@ -612,7 +612,7 @@ function o() {
     return new Promise((resolve) => {
             setTimeout(() => {
                 resolve('o')
-            }, 1000);
+            }, Math.random()*1000);
     })
 }
 
@@ -620,7 +620,7 @@ function voidt() {
     return new Promise((resolve) => {
             setTimeout(() => {
                 resolve(' ')
-            }, 100);
+            }, Math.random()*1000);
     })
 }
 
@@ -628,7 +628,7 @@ function w() {
     return new Promise((resolve) => {
             setTimeout(() => {
                 resolve('W')
-            }, 150);
+            }, Math.random()*1000);
     })
 }
 
@@ -636,7 +636,7 @@ function o2() {
     return new Promise((resolve) => {
             setTimeout(() => {
                 resolve('o')
-            }, 400);
+            }, Math.random()*1000);
     })
 }
 
@@ -644,7 +644,7 @@ function r() {
     return new Promise((resolve) => {
             setTimeout(() => {
                 resolve('r')
-            }, 300);
+            }, Math.random()*1000);
     })
 }
 
@@ -652,7 +652,7 @@ function l3() {
     return new Promise((resolve) => {
             setTimeout(() => {
                 resolve('l')
-            }, 200);
+            }, Math.random()*1000);
     })
 }
 
@@ -660,7 +660,7 @@ function d() {
     return new Promise((resolve) => {
             setTimeout(() => {
                 resolve('d')
-            }, 100);
+            }, Math.random()*1000);
     })
 }
 
