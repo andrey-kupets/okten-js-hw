@@ -107,45 +107,81 @@ fetch('https://jsonplaceholder.typicode.com/users')
     .then(users => {
         // users = response;
         console.log(users);
-        users.forEach(({name, username, email, address: {street, suite, city, zipcode, geo: {lat, lng}}, phone, website, company: {name: nameCompany, catchPhrase, bs}}) => {
+        users.forEach(({id, name, username, email, address: {street, suite, city, zipcode, geo: {lat, lng}}, phone, website, company: {name: nameCompany, catchPhrase, bs}}) => {
             const user = document.createElement('div');
+            const property0 = document.createElement('h3');
             const property1 = document.createElement('div');
             const property2 = document.createElement('div');
             const property3 = document.createElement('div');
+
             const property4 = document.createElement('div');
+            const pre1Property4 = document.createElement('div');
+            const pre2Property4 = document.createElement('div');
+            const pre3Property4 = document.createElement('div');
+            const pre4Property4 = document.createElement('div');
+            const pre5Property4 = document.createElement('div');
+            const inner1Pre5Property4 = document.createElement('div');
+            const inner2Pre5Property4 = document.createElement('div');
+
             const property5 = document.createElement('div');
             const property6 = document.createElement('div');
+
             const property7 = document.createElement('div');
             const pre1Property7 = document.createElement('div');
             const pre2Property7 = document.createElement('div');
             const pre3Property7 = document.createElement('div');
+
+            property0.innerText = `USER: ${id}`
             property1.innerText = `${name};`;
             property2.innerText = `${username};`;
             property3.innerText = `${email};`;
-            property4.innerText = `address: ${street}, ${suite}; ${city}; ${zipcode}; geo: ${lat}; ${lng};`;
+
+            property4.innerText = `address:`;
+            pre1Property4.innerText = `--- ${street},`;
+            pre2Property4.innerText = `--- ${suite},`;
+            pre3Property4.innerText = `--- ${city},`;
+            pre4Property4.innerText = `--- ${zipcode},`;
+            pre5Property4.innerText = `--- geo:`;
+            inner1Pre5Property4.innerText = `___${lat};`;
+            inner2Pre5Property4.innerText = `___${lng};`;
+
             property5.innerText = `${phone};`;
             property6.innerText = `${website};`;
+            
             property7.innerText = `company:`;
-            pre1Property7.innerText = `---${nameCompany};`;
-            pre2Property7.innerText = `---${catchPhrase};`
-            pre3Property7.innerText = `---${bs};`;
-            const br = document.createElement('br');
+            pre1Property7.innerText = `--- ${nameCompany};`;
+            pre2Property7.innerText = `--- ${catchPhrase};`
+            pre3Property7.innerText = `--- ${bs};`;
+
+            user.appendChild(property0);
             user.appendChild(property1);
             user.appendChild(property2);
             user.appendChild(property3);
+
             user.appendChild(property4);
+            property4.appendChild(pre1Property4);
+            property4.appendChild(pre2Property4);
+            property4.appendChild(pre3Property4);
+            property4.appendChild(pre4Property4);
+            property4.appendChild(pre5Property4);
+            pre5Property4.appendChild(inner1Pre5Property4);
+            pre5Property4.appendChild(inner2Pre5Property4);
+
             user.appendChild(property5);
             user.appendChild(property6);
+
             user.appendChild(property7);
             property7.appendChild(pre1Property7);
             property7.appendChild(pre2Property7);
             property7.appendChild(pre3Property7);
 
+            const br = document.createElement('br');
             user.appendChild(br);
-
 
             document.body.appendChild(user);
             console.log(user);
+            console.log(user.children.length);
+
         }); 
 
     })    
@@ -155,16 +191,3 @@ fetch('https://jsonplaceholder.typicode.com/users')
 // ****** при помощи fetch (как в примере) получить от jsonplaceholder все posts. Внутри последнего then() сделать еще один fetch который сделает запрос и получит все comments. Объеденить соответсвующий post с соответсвующими comment и вывести в браузер. Подсказка : в каждом comment есть поле postId которое определяет какой комментарий принадлежит какому посту
 
 
-// +------------------expl
-
-// let man = {
-//     name: 'andrii',
-//     age: 41,
-//     hobby: undefined,
-//     payment: NaN
-// }
-
-// let clone = JSON.parse(JSON.stringify(man));
-
-// console.log(man);
-// console.log(clone);
