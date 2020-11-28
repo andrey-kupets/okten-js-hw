@@ -108,82 +108,104 @@ fetch('https://jsonplaceholder.typicode.com/users')
         // users = response;
         console.log(users);
         users.forEach(({id, name, username, email, address: {street, suite, city, zipcode, geo: {lat, lng}}, phone, website, company: {name: nameCompany, catchPhrase, bs}}) => {
-            const user = document.createElement('div');
-            const property0 = document.createElement('h3');
-            const property1 = document.createElement('div');
-            const property2 = document.createElement('div');
-            const property3 = document.createElement('div');
-
-            const property4 = document.createElement('div');
-            const pre1Property4 = document.createElement('div');
-            const pre2Property4 = document.createElement('div');
-            const pre3Property4 = document.createElement('div');
-            const pre4Property4 = document.createElement('div');
-            const pre5Property4 = document.createElement('div');
-            const inner1Pre5Property4 = document.createElement('div');
-            const inner2Pre5Property4 = document.createElement('div');
-
-            const property5 = document.createElement('div');
-            const property6 = document.createElement('div');
-
-            const property7 = document.createElement('div');
-            const pre1Property7 = document.createElement('div');
-            const pre2Property7 = document.createElement('div');
-            const pre3Property7 = document.createElement('div');
-
-            property0.innerText = `USER: ${id}`
-            property1.innerText = `${name};`;
-            property2.innerText = `${username};`;
-            property3.innerText = `${email};`;
-
-            property4.innerText = `address:`;
-            pre1Property4.innerText = `--- ${street},`;
-            pre2Property4.innerText = `--- ${suite},`;
-            pre3Property4.innerText = `--- ${city},`;
-            pre4Property4.innerText = `--- ${zipcode},`;
-            pre5Property4.innerText = `--- geo:`;
-            inner1Pre5Property4.innerText = `___${lat};`;
-            inner2Pre5Property4.innerText = `___${lng};`;
-
-            property5.innerText = `${phone};`;
-            property6.innerText = `${website};`;
-            
-            property7.innerText = `company:`;
-            pre1Property7.innerText = `--- ${nameCompany};`;
-            pre2Property7.innerText = `--- ${catchPhrase};`
-            pre3Property7.innerText = `--- ${bs};`;
-
-            user.appendChild(property0);
-            user.appendChild(property1);
-            user.appendChild(property2);
-            user.appendChild(property3);
-
-            user.appendChild(property4);
-            property4.appendChild(pre1Property4);
-            property4.appendChild(pre2Property4);
-            property4.appendChild(pre3Property4);
-            property4.appendChild(pre4Property4);
-            property4.appendChild(pre5Property4);
-            pre5Property4.appendChild(inner1Pre5Property4);
-            pre5Property4.appendChild(inner2Pre5Property4);
-
-            user.appendChild(property5);
-            user.appendChild(property6);
-
-            user.appendChild(property7);
-            property7.appendChild(pre1Property7);
-            property7.appendChild(pre2Property7);
-            property7.appendChild(pre3Property7);
-
-            const br = document.createElement('br');
-            user.appendChild(br);
-
-            document.body.appendChild(user);
+            const user = {id, name, username, email, address: {street, suite, city, zipcode, geo: {lat, lng}}, phone, website, company: {name: nameCompany, catchPhrase, bs}};
+            const userDiv = document.createElement('div');
             console.log(user);
-            console.log(user.children.length);
+            for (const key in user) {
+                const elementDiv = document.createElement('div');
+                const element = user[key];
+                console.log(element);
+                elementDiv.innerText = `${element}`
+                userDiv.appendChild(elementDiv);
+                for (const key in element) {
+                    if (key === 'street' || key === 'suite' || key === 'city' || key === 'zipcode' || key === 'geo' || key === 'name' || key === 'catchPhrase' || key === 'bs') {
+                        const elementaryDiv = document.createElement('div');
+                        const elementary = element[key];
+                        elementaryDiv.innerText = `---${elementary}`;
+                        elementDiv.appendChild(elementaryDiv);
+                        for (const key in elementary) {
+                            if (key === 'lat' || key === 'lng') {
+                                const elementariestDiv = document.createElement('div');
+                                const elementariest = elementary[key];
+                                elementariestDiv.innerText = `***${elementariest}`;
+                                elementaryDiv.append(elementariestDiv);
+                            }
+                        }
+                    }
+                }
+            }
+            // -----супер много кода - всё ручками
+            // const property0 = document.createElement('h3');
+            // const property1 = document.createElement('div');
+            // const property2 = document.createElement('div');
+            // const property3 = document.createElement('div');
 
+            // const property4 = document.createElement('div');
+            // const pre1Property4 = document.createElement('div');
+            // const pre2Property4 = document.createElement('div');
+            // const pre3Property4 = document.createElement('div');
+            // const pre4Property4 = document.createElement('div');
+            // const pre5Property4 = document.createElement('div');
+            // const inner1Pre5Property4 = document.createElement('div');
+            // const inner2Pre5Property4 = document.createElement('div');
+
+            // const property5 = document.createElement('div');
+            // const property6 = document.createElement('div');
+
+            // const property7 = document.createElement('div');
+            // const pre1Property7 = document.createElement('div');
+            // const pre2Property7 = document.createElement('div');
+            // const pre3Property7 = document.createElement('div');
+
+            // property0.innerText = `USER: ${id}`
+            // property1.innerText = `${name};`;
+            // property2.innerText = `${username};`;
+            // property3.innerText = `${email};`;
+
+            // property4.innerText = `address:`;
+            // pre1Property4.innerText = `--- ${street},`;
+            // pre2Property4.innerText = `--- ${suite},`;
+            // pre3Property4.innerText = `--- ${city},`;
+            // pre4Property4.innerText = `--- ${zipcode},`;
+            // pre5Property4.innerText = `--- geo:`;
+            // inner1Pre5Property4.innerText = `___${lat};`;
+            // inner2Pre5Property4.innerText = `___${lng};`;
+
+            // property5.innerText = `${phone};`;
+            // property6.innerText = `${website};`;
+            
+            // property7.innerText = `company:`;
+            // pre1Property7.innerText = `--- ${nameCompany};`;
+            // pre2Property7.innerText = `--- ${catchPhrase};`
+            // pre3Property7.innerText = `--- ${bs};`;
+
+            // user.appendChild(property0);
+            // user.appendChild(property1);
+            // user.appendChild(property2);
+            // user.appendChild(property3);
+
+            // user.appendChild(property4);
+            // property4.appendChild(pre1Property4);
+            // property4.appendChild(pre2Property4);
+            // property4.appendChild(pre3Property4);
+            // property4.appendChild(pre4Property4);
+            // property4.appendChild(pre5Property4);
+            // pre5Property4.appendChild(inner1Pre5Property4);
+            // pre5Property4.appendChild(inner2Pre5Property4);
+
+            // user.appendChild(property5);
+            // user.appendChild(property6);
+
+            // user.appendChild(property7);
+            // property7.appendChild(pre1Property7);
+            // property7.appendChild(pre2Property7);
+            // property7.appendChild(pre3Property7);
+            //  -------------------------------------------
+            const br = document.createElement('br');
+            userDiv.appendChild(br);
+
+            document.body.appendChild(userDiv);
         }); 
-
     })    
 
 // *** за допомогою fetch (як в прикладі) отримати від jsonplaceholder всі posts. За допомогою document.createElement вивести їх в браузер. Помістити кожен окремий об'єкт в блок, при цьому кожен внутрішній об'єкт(якщо він існує) в свій блок (блок в блоці).
@@ -191,3 +213,23 @@ fetch('https://jsonplaceholder.typicode.com/users')
 // ****** при помощи fetch (как в примере) получить от jsonplaceholder все posts. Внутри последнего then() сделать еще один fetch который сделает запрос и получит все comments. Объеденить соответсвующий post с соответсвующими comment и вывести в браузер. Подсказка : в каждом comment есть поле postId которое определяет какой комментарий принадлежит какому посту
 
 
+// fetch('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
+//     .then(response => {
+//         return response.json();
+//     })
+//     .then(courses => {
+//         console.log(courses);
+//         for (let i = 0; i < courses.length; i++) {
+//             const course = courses[i];
+//             console.log(course);
+//             const courseDiv = document.createElement('div');
+//             console.log(courseDiv);
+//             for (const key in course) {
+//                     const element = course[key];
+//                     console.log(element);
+//                     courseDiv.innerText = `${element}`;
+                    
+//             }
+//             document.body.appendChild(courseDiv);
+//         }
+//     })
