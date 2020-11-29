@@ -576,121 +576,159 @@
 // l (затримка 0.7)
 // о (затримка 1)   
 
-function h() {
-    return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve('H');
-            }, Math.random()*1000);
-    })
-}
+// function h() {
+//     return new Promise((resolve) => {
+//             setTimeout(() => {
+//                 resolve('H');
+//             }, Math.random()*1000);
+//     })
+// }
 
-function e() {
-    return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve('e');
-            }, Math.random()*1000);
-    })
-}
+// function e() {
+//     return new Promise((resolve) => {
+//             setTimeout(() => {
+//                 resolve('e');
+//             }, Math.random()*1000);
+//     })
+// }
 
-function l() {
-    return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve('l');
-            }, Math.random()*1000);
-    })
-}
+// function l() {
+//     return new Promise((resolve) => {
+//             setTimeout(() => {
+//                 resolve('l');
+//             }, Math.random()*1000);
+//     })
+// }
 
-function l2() {
-    return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve('l');
-            }, Math.random()*1000);
-    })
-}
+// function l2() {
+//     return new Promise((resolve) => {
+//             setTimeout(() => {
+//                 resolve('l');
+//             }, Math.random()*1000);
+//     })
+// }
 
-function o() {
-    return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve('o')
-            }, Math.random()*1000);
-    })
-}
+// function o() {
+//     return new Promise((resolve) => {
+//             setTimeout(() => {
+//                 resolve('o')
+//             }, Math.random()*1000);
+//     })
+// }
 
-function voidt() {
-    return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(' ')
-            }, Math.random()*1000);
-    })
-}
+// function voidt() {
+//     return new Promise((resolve) => {
+//             setTimeout(() => {
+//                 resolve(' ')
+//             }, Math.random()*1000);
+//     })
+// }
 
-function w() {
-    return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve('W')
-            }, Math.random()*1000);
-    })
-}
+// function w() {
+//     return new Promise((resolve) => {
+//             setTimeout(() => {
+//                 resolve('W')
+//             }, Math.random()*1000);
+//     })
+// }
 
-function o2() {
-    return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve('o')
-            }, Math.random()*1000);
-    })
-}
+// function o2() {
+//     return new Promise((resolve) => {
+//             setTimeout(() => {
+//                 resolve('o')
+//             }, Math.random()*1000);
+//     })
+// }
 
-function r() {
-    return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve('r')
-            }, Math.random()*1000);
-    })
-}
+// function r() {
+//     return new Promise((resolve) => {
+//             setTimeout(() => {
+//                 resolve('r')
+//             }, Math.random()*1000);
+//     })
+// }
 
-function l3() {
-    return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve('l')
-            }, Math.random()*1000);
-    })
-}
+// function l3() {
+//     return new Promise((resolve) => {
+//             setTimeout(() => {
+//                 resolve('l')
+//             }, Math.random()*1000);
+//     })
+// }
 
-function d() {
-    return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve('d')
-            }, Math.random()*1000);
-    })
-}
+// function d() {
+//     return new Promise((resolve) => {
+//             setTimeout(() => {
+//                 resolve('d')
+//             }, Math.random()*1000);
+//     })
+// }
 
-async function printWord() {
-    const printH = await h();
-    document.write(printH);
-    const printE = await e();
-    document.write(printE);
-    const printL = await l();
-    document.write(printL);
-    const printL2 = await l2();
-    document.write(printL2);
-    const printO = await o();
-    document.write(printO);
-    const printvoid = await voidt();
-    document.write(printvoid);
-    const printW = await w();
-    document.write(printW);
-    const printO2 = await o2();
-    document.write(printO2);
-    const printR = await r();
-    document.write(printR);
-    const printL3 = await l3();
-    document.write(printL3);
-    const printD = await d();
-    document.write(printD);
-}
+// async function printWord() {
+//     const printH = await h();
+//     document.write(printH);
+//     const printE = await e();
+//     document.write(printE);
+//     const printL = await l();
+//     document.write(printL);
+//     const printL2 = await l2();
+//     document.write(printL2);
+//     const printO = await o();
+//     document.write(printO);
+//     const printvoid = await voidt();
+//     document.write(printvoid);
+//     const printW = await w();
+//     document.write(printW);
+//     const printO2 = await o2();
+//     document.write(printO2);
+//     const printR = await r();
+//     document.write(printR);
+//     const printL3 = await l3();
+//     document.write(printL3);
+//     const printD = await d();
+//     document.write(printD);
+// }
 
-printWord();
-
-
+// printWord();
 
 
+
+// --------------recursion --- код Витали------------------
+// arr = 'Hello World Hello World'.split('');
+// console.log(arr);
+
+// let count = 0;
+// function typeWriter(arr) {
+//     if (count > arr.length - 1) {
+//         return; 
+//     }
+//     setTimeout(() => {
+//         return document.write(arr[count++]) + typeWriter(arr);
+//     }, Math.random() * 1000);
+// }
+
+// typeWriter(arr);
+
+//  ----------async with loops - код Макса - я убрал рандомайзер--------------
+// const str = 'Hello World';
+// console.log([...str]);
+
+
+// function typeWriter() {
+//     return new Promise((resolve) => {
+//         setTimeout(resolve, Math.random() * 1000);
+//     })
+// }
+
+// async function delayedWrite(litera) {
+//     await typeWriter();
+//     document.write(litera);
+// }
+
+// async function iterateArr(array) {
+//     for (const item of array) {
+//         await delayedWrite(item);
+//     }
+// }
+
+// iterateArr([...str]);
