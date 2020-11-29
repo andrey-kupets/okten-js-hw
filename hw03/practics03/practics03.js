@@ -213,23 +213,27 @@ fetch('https://jsonplaceholder.typicode.com/users')
 // ****** при помощи fetch (как в примере) получить от jsonplaceholder все posts. Внутри последнего then() сделать еще один fetch который сделает запрос и получит все comments. Объеденить соответсвующий post с соответсвующими comment и вывести в браузер. Подсказка : в каждом comment есть поле postId которое определяет какой комментарий принадлежит какому посту
 
 
-// fetch('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
-//     .then(response => {
-//         return response.json();
-//     })
-//     .then(courses => {
-//         console.log(courses);
-//         for (let i = 0; i < courses.length; i++) {
-//             const course = courses[i];
-//             console.log(course);
-//             const courseDiv = document.createElement('div');
-//             console.log(courseDiv);
-//             for (const key in course) {
-//                     const element = course[key];
-//                     console.log(element);
-//                     courseDiv.innerText = `${element}`;
-                    
-//             }
-//             document.body.appendChild(courseDiv);
-//         }
-//     })
+
+fetch('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
+    .then(response => {
+        return response.json();
+    })
+    .then(courses => {
+        console.log(courses);
+        for (let i = 0; i < courses.length; i++) {
+            const course = courses[i];
+            console.log(course);
+            const courseDiv = document.createElement('div');
+            for (const key in course) {
+                const elementDiv = document.createElement('div');
+                const element = course[key];
+                console.log(element);
+                elementDiv.innerText = `${element}`;
+                courseDiv.appendChild(elementDiv);  
+                
+            }
+            const hr = document.createElement('hr');
+            courseDiv.appendChild(hr); 
+            document.body.appendChild(courseDiv);
+        }
+    })
