@@ -694,20 +694,20 @@
 
 
 // --------------recursion --- код Витали------------------
-arr = 'Hello World Hello World'.split('');
-console.log(arr);
+// arr = 'Hello World Hello World'.split('');
+// console.log(arr);
 
-let count = 0;
-function typeWriter(arr) {
-    if (count > arr.length - 1) {
-        return; 
-    }
-    setTimeout(() => {
-        return document.write(arr[count++]) + typeWriter(arr);
-    }, Math.random() * 1000);
-}
+// let count = 0;
+// function typeWriter(arr) {
+//     if (count > arr.length - 1) {
+//         return; 
+//     }
+//     setTimeout(() => {
+//         return document.write(arr[count++]) + typeWriter(arr);
+//     }, Math.random() * 1000);
+// }
 
-typeWriter(arr);
+// typeWriter(arr);
 
 //  ----------async with loops - код Макса - я убрал рандомайзер--------------
 // const str = 'Hello World';
@@ -732,3 +732,24 @@ typeWriter(arr);
 // }
 
 // iterateArr([...str]);
+
+// -------------------- by myself--------
+const str = 'Hello World';
+console.log([...str]);
+
+function typeWriter(litera) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(litera);
+            document.write(litera);
+        }, Math.random() * 1000);
+    })
+}
+
+async function iterateArr(array) {
+    for (const item of array) {
+        await typeWriter(item);
+    }
+}
+
+iterateArr([...str]);
