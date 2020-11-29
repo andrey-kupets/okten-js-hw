@@ -694,20 +694,20 @@
 
 
 // --------------recursion --- код Витали------------------
-// arr = 'Hello World Hello World'.split('');
-// console.log(arr);
+arr = 'Hello World Hello World'.split('');
+console.log(arr);
 
-// let count = 0;
-// function typeWriter(arr) {
-//     if (count > arr.length - 1) {
-//         return; 
-//     }
-//     setTimeout(() => {
-//         return document.write(arr[count++]) + typeWriter(arr);
-//     }, Math.random() * 1000);
-// }
+let count = 0;
+function typeWriter(arr) {
+    if (count > arr.length - 1) {
+        return; 
+    }
+    setTimeout(() => {
+        return document.write(arr[count++]) + typeWriter(arr);
+    }, Math.random() * 1000);
+}
 
-// typeWriter(arr);
+typeWriter(arr);
 
 //  ----------async with loops - код Макса - я убрал рандомайзер--------------
 // const str = 'Hello World';
