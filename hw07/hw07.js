@@ -408,3 +408,22 @@
 
 
 // *** При виділені сегменту тексту на сторінці він стає жирний/курсивний/або якось іншим способом змінює свій стан
+
+const pTags = document.getElementsByTagName('p');
+console.log(pTags);
+for (const p of pTags) {
+    p.onmouseup = function() {
+        let area = document.getSelection().toString();
+        console.log(area);
+        this.innerHTML = this.innerText.replace(area, `<del>${area}</del>`); // or s or strike --- strikethrough
+        this.innerHTML = this.innerText.replace(area, `<ins>${area}</ins>`); // or u --- underlined
+        this.innerHTML = this.innerText.replace(area, `<sub>${area}</sub>`); // lower IndexText
+        this.innerHTML = this.innerText.replace(area, `<sup>${area}</sup>`); // upper IndexTex
+        this.innerHTML = this.innerText.replace(area, `<tt>${area}</tt>`); // моноширинный monospaced
+        this.innerHTML = this.innerText.replace(area, `<small>${area}</small>`); // reduce font
+        this.innerHTML = this.innerText.replace(area, `<big>${area}</big>`); // increase font
+        this.innerHTML = this.innerText.replace(area, `<i>${area}</i>`); // italic
+        this.innerHTML = this.innerText.replace(area, `<b>${area}</b>`); // bold
+
+    };
+}
