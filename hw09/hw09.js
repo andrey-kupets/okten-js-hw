@@ -733,7 +733,7 @@
 
 // iterateArr([...str]);
 
-// -------------------- by myself--------
+// -------------------- by myself()--------
 const str = 'Hello World';
 console.log([...str]);
 
