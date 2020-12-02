@@ -735,13 +735,12 @@
 
 // -------------------- by myself()--------
 const str = 'Hello World';
-console.log([...str]);
+// console.log([...str]);
 
 function typeWriter(litera) {
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve(litera);
-            document.write(litera);
+            resolve(document.write(litera));
         }, Math.random() * 1000);
     })
 }
