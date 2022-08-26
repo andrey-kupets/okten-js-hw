@@ -1,9 +1,8 @@
-console.log(2);
 class Rectangle {
-    private _width;
-    private _height;
+    private _width: Number;
+    private _height: Number;
 
-    constructor(w, h) {
+    constructor(w: Number, h: Number) {
         this._width = w;
         this._height = h;
     }
@@ -12,8 +11,7 @@ class Rectangle {
         return this._width;
     }
 
-    
-    public set width(w) {
+    public set width(w: Number) {
 
         if (w < 0) {
             this._width = 1;
@@ -25,5 +23,9 @@ class Rectangle {
 }
 
 const rect = new Rectangle(2,5);
-rect.width = -6;
+const rectWidth = rect.width;
+console.log(rectWidth);
+
+rect.width = -10;
+
 console.log(rect);
