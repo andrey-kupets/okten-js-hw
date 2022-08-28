@@ -103,6 +103,10 @@ class Database implements Table {
     public createNewTable(table: Table) {
         this._tables.push(table)
     }
+
+    public clearTables() {
+        this._tables = [];
+    }
     
     public get url() : string {
         return this._url;
