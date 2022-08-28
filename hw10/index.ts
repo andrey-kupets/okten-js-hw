@@ -27,7 +27,10 @@ const rect = new Rectangle(2,5);
 const rectWidth = rect.width;
 console.log(rectWidth);
 
+rect._width = -10; // error
+rect._height = -10; // error
 rect.width = -10;
+rect.height = -10; // error
 console.log(rect);
 
 // 2 incapsulation: getters & setters
