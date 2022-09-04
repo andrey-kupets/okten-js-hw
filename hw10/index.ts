@@ -150,9 +150,13 @@ class Person {
         this._age = age;
     }
 
-    // public fullname() : string { // w/o getter - only pure method
     public get fullname() : string {
+    // public fullname() : string { // w/o getter - only pure method
         return `Фамиля - ${this._lastname} Имя - ${this._firstname}  `
+    }
+
+    public greeting() {
+        console.log(`My name is ${this._firstname} and i am a person`);
     }
 }
 
@@ -165,10 +169,21 @@ class Dev extends Person {
         this.level = level;
         this.language = language;
     }
+
+    public greeting() {
+        console.log(`My name is ${this._firstname} and i am a dev`);
+    }
 }
 
 const andre = new Dev('Andre', 'Dantes', 45, 'june', 'js');
 console.log(andre);
-// console.log(andre.fullname()); // w/o getter - only pure method
 console.log(andre.fullname);
+// console.log(andre.fullname()); // w/o getter - only pure method
 
+// 3 polymorphism
+
+const vasya = new Person('vasya', 'rok', 15);
+
+// one method works identically (5+5=10; '5' + '5' = '55' work with different types can be implemented in one method )
+vasya.greeting();
+andre.greeting();
