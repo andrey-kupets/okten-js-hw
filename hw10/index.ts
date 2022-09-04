@@ -170,14 +170,14 @@ class Dev extends Person {
         this.language = language;
     }
 
-    public greeting() {
+    public greeting() { // rewrite parent method
         console.log(`My name is ${this._firstname} and i am a dev`);
     }
 }
 
 const andre = new Dev('Andre', 'Dantes', 45, 'june', 'js');
 console.log(andre);
-console.log(andre.fullname);
+console.log(andre.fullname); // inheritates parent method
 // console.log(andre.fullname()); // w/o getter - only pure method
 
 // 3 polymorphism
@@ -185,5 +185,9 @@ console.log(andre.fullname);
 const vasya = new Person('vasya', 'rok', 15);
 
 // one method works identically (5+5=10; '5' + '5' = '55' work with different types can be implemented in one method )
-vasya.greeting();
-andre.greeting();
+const persons = [vasya, andre];
+const massGreating = (persons) => {
+    persons.forEach(person => person.greeting());
+}
+
+massGreating(persons);
