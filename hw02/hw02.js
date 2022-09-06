@@ -196,15 +196,48 @@
 
 // for (let i = 0; i < 3; i++) {
 //     let j = 0;
-//         if (i < 2 ) {
-//             for (; j < 60; j++){
-//                 console.log(i, j); 
-//                 }
-//         } else if( i = 2 ) {
-//             console.log(i, j);
-//         }   
-//     }
+//     if (i < 2 ) {
+//         for (; j < 60; j++){
+//             console.log(i, j); 
+//             }
+//     } 
+//     else if( i = 2 ) {
+//         console.log(i, j);
+//     }   
+// }
 
+// let m = 0;
+// let s = 1;
+
+// while( m <= 2) {
+//     while (s < 60) {
+//         console.log(`minutes: ${m} seconds: ${s}`);
+//         s++;
+//     }
+//     s = 0;
+//     m++;
+//     if (m === 2) {
+//         console.log(`minutes: ${m} seconds: ${s}`);
+//         break;
+//     }
+// }
+
+// **************************************************************
+
+// for (let h = 0; h <= 2; h++) {
+//     m = 0; 
+//     for (; m < 60; m++) {
+//         s = 0;
+//         for (;s < 60; s++) {
+//             document.write(`hours: ${h} minutes: ${m} seconds: ${s}`);
+//         }
+        
+//     }
+//     if (h === 2 && m === 20) {
+//         document.write(`hours: ${h} minutes: ${m} seconds: ${s}`);
+//         break;
+//     }
+// }
 
 // вышло без 1 секунды
 
@@ -273,18 +306,44 @@
 // }
 
 // -------------****************-----------------
-debugger
-for (h = 0; h < 3; h++) {
-    for (m = 0; m < 60; m++) {
-        for (s = 0; s < 60; s++) {
-            if (h < 3 && m < 20 ) {
-                console.log(h, m, s);
-            }
+// THIS IS IT
+// for (let h = 0; h < 3; h++) {
+//     for (let m = 0; m < 60; m++) {
+//         for (let s = 0; s < 60; s++) {
+//             document.write(`${h} ${m} ${s} <br/>`);    
+//             if (h === 2 && m === 20 && s ===0){break;}
+//         }
+//         if (h === 2 && m === 20){break;}
+//     }
+// }
 
-        }
-    }
-}
 
+// ---- Max's code
+// const maxH = 2;
+// for (let h = 0; h <= maxH; h++) {
+//   ;
+//   let min = 0;
+//   let sec = 0;
+//   if (h < maxH) {
+//     for (; min < 60; min++) {
+//       sec = 0;
+//         for (; sec < 60; sec++) {
+//           document.write(`${h} год  ${min} мин  ${sec} сек <br/>`);
+//         }
+//     }
+//   } else if (h === maxH) {
+//     for (; min <= 20; min++) {
+//       sec = 0;
+//       if (min < 20) {
+//         for (; sec < 60; sec++) {
+//           document.write(`${h} год  ${min} мин  ${sec} сек <br/>`);
+//         }
+//       } else if (min === 20) {
+//         document.write(`${h} год  ${min} мин  ${sec} сек <br/>`);
+//       }
+//     }
+//   }
+// }
 
 // Додатково
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for зібрати всі букви в слово.
@@ -543,35 +602,49 @@ for (h = 0; h < 3; h++) {
 // console.log(all);
 // console.log(obj, 'this is object');
 
-// найти уникальное значение( и записать в объект)ж
+// найти уникальное значение( и записать в объект)ж *************************************************************
 
-let arr = [1, 5, 6, 6, 1, 8, 0, 4, 4, 5];
-let obj = {};
+// let arr = [1, 5, 6, 6, 1, 8, 0, 4, 4, 5];
+// let obj = {};
 
-for (const i of arr) {
-    obj[i] ? obj[i]++ : obj[i] = 1;  
-}
-console.log(obj);
+// self
+// for (const key of arr) {
+//         // if (obj[key]){
+//         //     // obj[i] = obj[i]+1;
+//         //     obj[key]++;
+//         // } else {
+//         //     obj[key] = 1;
+//         // };
+//     !obj[key] ? obj[key] = 1 : obj[key]++;     
+//     for (const key in obj) {
 
-let keys = Object.keys(obj);
-console.log(keys);
-console.log(keys['2']);
+//         if (obj[key] > 1) {
+//             delete obj[key];
+//         }     
+//     }
+// }
 
-// for (const key of keys) {
+// s.o.
+// for (const i of arr) {
+// console.log(obj[i]);
+
+//     obj[i] ? obj[i]++ : obj[i] = 1;  
+// }
+// console.log(obj);
+
+// let keys = Object.keys(obj);
+// console.log(keys);
+// console.log(keys['2']);
+
+// // ******************or
+
+// for (const key in obj) {
 //     if (obj[key] > 1) {
 //         delete obj[key];
 //     }
-// }  
+// }
 
 // console.log(obj);
-// // ******************or
-for (const key in obj) {
-    if (obj[key] > 1) {
-        delete obj[key];
-    }
-}
-
-console.log(obj);
 
     // let obj2 = {
     //     name: 'gerard',

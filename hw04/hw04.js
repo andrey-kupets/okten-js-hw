@@ -100,16 +100,16 @@
 // - створити функцію яка приймає масив чисел та складає 
 // значення елементів масиву та повертає його.
 
-// let arr = [1, 5, 8, 9, 55, 7, 8, -1];
+// let array = [1, 5, 8, 9, 55, 7, 8, -1];
 
-// function fn() {
+// function fn(arr) {
 //     let t = 0;
 //     for (const i of arr) {
 //         t = t + i;
 //     }
 //     return t;
 // }
-// let y = fn();
+// let y = fn(array);
 // console.log(y);
 // - створити функцію яка приймає масив чисел та повертає 
 // середнє арифметичне його значень.
@@ -285,17 +285,17 @@
 // Всі властивості авто в обному блоці
 
 // let cars = [
-// 	{model: 'ferrary', edition: 2015, power: '220hp', color: 'red'},
+// 	{model: 'ferrari', edition: 2015, power: '220hp', color: 'red'},
 // 	{model: 'toyota', edition: 2011, power: '180hp', color: 'black'},
-// 	{model: 'crystler', edition: 2012, power: '210hp', color: 'blue'},
+// 	{model: 'chrysler', edition: 2012, power: '210hp', color: 'blue'},
 // 	{model: 'honda', edition: 2017, power: '160hp', color: 'white'},
 // 	{model: 'nissan', edition: 2019, power: '150hp', color: 'green'},
 // 	{model: 'volvo', edition: 2016, power: '170hp', color: 'grey'},
 // 	{model: 'hammer', edition: 2014, power: '250hp', color: 'hakki'},
-// 	{model: 'renault', edition: 2015, power: '170hp', color: 'azyre'},
+// 	{model: 'renault', edition: 2015, power: '170hp', color: 'azure'},
 // 	{model: 'mitsubishi', edition: 2013, power: '200hp', color: 'red'},
 // 	{model: 'ford', edition: 2016, power: '180hp', color: 'blue'},
-// ]
+// ];
 
 // let createCars = (array, idOfTag) => {
 //     const carBlock = document.getElementById(idOfTag);
@@ -346,26 +346,26 @@
 //  та "user_id",
 // та повертає масив цих з'єднаних об'єктів.
 // Приклад масивів:
-    let usersWithId = [{id: 1, name: 'vasya', age: 31, status: false}, {id: 2, name: 'petya', age: 30, status: true}, {id: 3, name: 'kolya', age: 29, status: true}, {id: 4, name: 'olya', age: 28, status: false},];
-    let citiesWithId = [{user_id: 3, country: 'USA', city: 'Portland'}, {user_id: 1, country: 'Ukraine', city: 'Ternopil'}, {user_id: 2, country: 'Poland', city: 'Krakow'}, {user_id: 4, country: 'USA', city: 'Miami'},];
+    // let usersWithId = [{id: 1, name: 'vasya', age: 31, status: false}, {id: 2, name: 'petya', age: 30, status: true}, {id: 3, name: 'kolya', age: 29, status: true}, {id: 4, name: 'olya', age: 28, status: false},];
+    // let citiesWithId = [{user_id: 3, country: 'USA', city: 'Portland'}, {user_id: 1, country: 'Ukraine', city: 'Ternopil'}, {user_id: 2, country: 'Poland', city: 'Krakow'}, {user_id: 4, country: 'USA', city: 'Miami'},];
 // Частковий приклад реультату:
 
-const joinArraysIn1 = (userArry, cityArray) => {
-    let users = JSON.parse(JSON.stringify(userArry));
-    let cities = JSON.parse(JSON.stringify(cityArray));
+// const joinArraysIn1 = (userArry, cityArray) => {
+//     let users = JSON.parse(JSON.stringify(userArry));
+//     let cities = JSON.parse(JSON.stringify(cityArray));
 
-    for (const user of users) {
-        for (const city of cities) {
-            if (user.id === city.user_id) {
-                user.address = city;
-            }
-        }
-    }
-    return users;
-}
+//     for (const user of users) {
+//         for (const city of cities) {
+//             if (user.id === city.user_id) {
+//                 user.address = city;
+//             }
+//         }
+//     }
+//     return users;
+// }
 
-let joinedArray = joinArraysIn1(usersWithId, citiesWithId);
-console.log(joinedArray);
+// let joinedArray = joinArraysIn1(usersWithId, citiesWithId);
+// console.log(joinedArray);
 
 // ***- беремо завдання з правилами з укроку №3 :
 // Та робимо це функцією.При цьому правила отримувати через аргумент.
@@ -373,64 +373,64 @@ console.log(joinedArray);
 // При цому в блоці, номер правила записати в свій блок, текст правила записати в свій окремий блок.
 // Результатом відпрацювання скріпта повинна бути структура яка міститься в блоці wrap файла rule.html
 
-			let rules = [
-				{
-					title: 'Первое правило Бойцовского клуба.',
-					body: 'Никому не рассказывать о Бойцовском клубе.'
-				},
-				{
-					title: 'Второе правило Бойцовского клуба.',
-					body: 'Никогда никому не рассказывать о Бойцовском клубе.'
-				},
-				{
-					title: 'Третье правило Бойцовского клуба.',
-					body: 'В схватке участвуют только двое.'
-				},
-				{
-					title: 'Четвертое правило Бойцовского клуба.',
-					body: 'Не более одного поединка за один раз.'
-				},
-				{
-					title: 'Пятое правило Бойцовского клуба.',
-					body: 'Бойцы сражаются без обуви и голые по пояс.'
-				},
-				{
-					title: 'Шестое правило Бойцовского клуба.',
-					body: 'Поединок продолжается столько, сколько потребуется.'
-				},
-				{
-					title: 'Седьмое правило Бойцовского клуба.',
-					body: 'Если противник потерял сознание или делает вид, что потерял, или говорит «Хватит» — поединок окончен.'
-				},
-				{
-					title: 'Восьмое и последнее правило Бойцовского клуба.',
-					body: 'Новичок обязан принять бой.'
-				},
+// 			let rules = [
+// 				{
+// 					title: 'Первое правило Бойцовского клуба.',
+// 					body: 'Никому не рассказывать о Бойцовском клубе.'
+// 				},
+// 				{
+// 					title: 'Второе правило Бойцовского клуба.',
+// 					body: 'Никогда никому не рассказывать о Бойцовском клубе.'
+// 				},
+// 				{
+// 					title: 'Третье правило Бойцовского клуба.',
+// 					body: 'В схватке участвуют только двое.'
+// 				},
+// 				{
+// 					title: 'Четвертое правило Бойцовского клуба.',
+// 					body: 'Не более одного поединка за один раз.'
+// 				},
+// 				{
+// 					title: 'Пятое правило Бойцовского клуба.',
+// 					body: 'Бойцы сражаются без обуви и голые по пояс.'
+// 				},
+// 				{
+// 					title: 'Шестое правило Бойцовского клуба.',
+// 					body: 'Поединок продолжается столько, сколько потребуется.'
+// 				},
+// 				{
+// 					title: 'Седьмое правило Бойцовского клуба.',
+// 					body: 'Если противник потерял сознание или делает вид, что потерял, или говорит «Хватит» — поединок окончен.'
+// 				},
+// 				{
+// 					title: 'Восьмое и последнее правило Бойцовского клуба.',
+// 					body: 'Новичок обязан принять бой.'
+// 				},
 
-			];
+// 			];
 
-const wrap = document.createElement('div');
-wrap.id = 'wrap';
+// const wrap = document.createElement('div');
+// wrap.id = 'wrap';
 
-let rulesAction = (rulesArg) => {
-    for (let i = 0; i < rules.length; i++) {
-        const rule = rulesArg[i];
-        const divRule = document.createElement('div');
-        const h2 = document.createElement('h2');
-        const p = document.createElement('p');
-        divRule.className = `rules rule${i+1}`
-        h2.innerText = rule.title;
-        p.innerText = rule.body;
-        divRule.appendChild(h2);
-        divRule.appendChild(p);
+// let rulesAction = (rulesArg) => {
+//     for (let i = 0; i < rules.length; i++) {
+//         const rule = rulesArg[i];
+//         const divRule = document.createElement('div');
+//         const h2 = document.createElement('h2');
+//         const p = document.createElement('p');
+//         divRule.className = `rules rule${i+1}`
+//         h2.innerText = rule.title;
+//         p.innerText = rule.body;
+//         divRule.appendChild(h2);
+//         divRule.appendChild(p);
     
-        wrap.appendChild(divRule);
-    }
+//         wrap.appendChild(divRule);
+//     }
     
-    document.body.appendChild(wrap);
-}
+//     document.body.appendChild(wrap);
+// }
 
-rulesAction(rules);
+// rulesAction(rules);
 
 // ===========додаткове від віктора========
 
@@ -448,3 +448,12 @@ rulesAction(rules);
 // Вирівняти багаторівневий масив в однорівневий
 // [1,3, ['Hello, 'Wordd', [9,6,1]], ['oops'], 9] -> [1, 3, 'Hello, 'Wordd', 9, 6, 1, 'oops', 9]
 // ===========додаткове========
+
+
+
+// let sumator = (one, two) => one + two;
+// console.log(sumator(20, 5));
+
+// let age = 7;
+// let message = age > 18 ? 'dood' : 'bad';
+// console.log(message);

@@ -733,22 +733,38 @@
 
 // iterateArr([...str]);
 
-// -------------------- by myself()--------
-const str = 'Hello World';
+// -------------------- ПЕЧАТНАЯ МАШИНКА ---- by myself()--------
+// const str = 'Hello World';
 // console.log([...str]);
 
-function typeWriter(litera) {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(document.write(litera));
-        }, Math.random() * 1000);
-    })
-}
+// function typeWriter(litera) {
+//     return new Promise((resolve) => {
+//         setTimeout(() => {
+//             resolve(document.write(litera));
+//         }, Math.random() * 1000);
+//     })
+// }
 
-async function iterateArr(array) {
-    for (const item of array) {
-        await typeWriter(item);
-    }
-}
+// async function iterateArr(array) {
+//     for (const item of array) {
+//         await typeWriter(item);
+//     }
+// }
 
-iterateArr([...str]);
+// iterateArr([...str]);
+
+
+//************************
+//************************
+
+// const str = 'hello world';
+
+// const print = (arr, i = 0) => {
+//     if (i === arr.length) return;
+//     setTimeout(() => {
+//         document.write(arr[i++]) + print(arr, i);
+//         // document.write(arr[i]) + print(arr, ++i);
+//     }, Math.random()*1000)
+// }
+
+// print([...str]);

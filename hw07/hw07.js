@@ -8,12 +8,13 @@
 // const btn = document.createElement('button');
 // btn.innerText = 'BUTTON';
 
-// // div.appendChild(btn);
+// div.appendChild(btn);
 // document.body.appendChild(div);
 // document.body.appendChild(btn);
-// // btn.onclick = ev => {
-// //     div.style.display = 'none';
-// // }; //--------------or
+// btn.onclick = ev => {
+//     div.style.display = 'none';
+// }; 
+//--------------or
 // btn.onclick = ev => {
 //     div.style.display === 'block'
 //     ? div.style.display = 'none'
@@ -216,46 +217,84 @@
 // - Напишите «Карусель» – ленту изображений, которую можно листать 
 // влево-вправо нажатием на стрелочки.
 
-// let images = [{id: 1, address: 'images/200px-Indiana_Jones_in_Raiders_of_the_Lost_Ark.jpg'},
-//             {id: 2, address: 'images/220px-Fleming007impression.jpg'}, 
-//             {id: 3, address: 'images/carlson.jpg'}, 
-//             {id: 4, address: 'images/Neo2.jpg'},
-//             {id: 5, address: 'images/saylor_papay.jpg'},
-//             {id: 6, address: 'images/winni.jpg'}];
-// const main = document.createElement('div');
-// const img = document.createElement('img');
-// img.style.width = '300px';
-// img.style.height = '300px';
-// img.src = images[0].address;
+let images = [{id: 1, address: 'images/200px-Indiana_Jones_in_Raiders_of_the_Lost_Ark.jpg'},
+            {id: 2, address: 'images/220px-Fleming007impression.jpg'}, 
+            {id: 3, address: 'images/carlson.jpg'}, 
+            {id: 4, address: 'images/Neo2.jpg'},
+            {id: 5, address: 'images/saylor_papay.jpg'},
+            {id: 6, address: 'images/winni.jpg'}];
+const main = document.createElement('div');
+const img = document.createElement('img');
+img.style.width = '300px';
+img.style.height = '300px';
+let index = 0;
+img.src = images[index].address;
 
-// const btnLeft = document.createElement('button');
-// btnLeft.innerText = 'LEFT';
-// const btnRight = document.createElement('button');
-// btnRight.innerText = 'RIGHT';
+const btnLeft = document.createElement('button');
+btnLeft.innerText = 'LEFT';
+const btnRight = document.createElement('button');
+btnRight.innerText = 'RIGHT';
 
-// main.appendChild(img);
-// document.body.appendChild(main);
+main.appendChild(img);
+document.body.appendChild(main);
 
-// document.body.appendChild(btnLeft);
-// document.body.appendChild(btnRight);
+document.body.appendChild(btnLeft);
+document.body.appendChild(btnRight);
 
 
-
-// let currentIndex = 0;
+//  с мотанием без остановки
 // btnLeft.onclick = () => {
-//         currentIndex - 1 < 0 ?
-//             currentIndex = images.length - 1 :
-//             currentIndex = currentIndex - 1;
-//         img.src = images[currentIndex].address;
+//     index - 1 < 0 
+//     ? index = images.length - 1 
+//     : index = index - 1;
+//     img.src = images[index].address;
 // }
 
 // btnRight.onclick = () => {
-//         currentIndex + 1 > images.length - 1 ?
-//             currentIndex = 0: 
-//             currentIndex = currentIndex + 1
-//         img.src = images[currentIndex].address;
+//     index + 1 > images.length - 1 
+//     ? index = 0 
+//     : index = index + 1
+//     img.src = images[index].address;
 // }
 
+// с исчезанием кнопок в крайних точках массива
+// глючит - 2 раза нажимать в крайних точках
+btnLeft.style.display = 'none'
+btnLeft.onclick = () => {
+    btnRight.style.display = 'block'; 
+
+    // if (index === 1 ||  index - 1 < 0) {      
+    // btnLeft.style.display = 'none'; 
+    // }
+    if (index === 1) {      // костыль, обязательно БЕЗ елза!!!
+        btnLeft.style.display = 'none'; 
+    }
+    index = index - 1; 
+
+    // index - 1 < 0 // логич. опер-ры не работают в самой тернаркеб только ифами
+    // ? btnLeft.style.display = 'none'
+    // : index = index - 1
+
+    img.src = images[index].address;
+}
+
+btnRight.onclick = () => {
+    btnLeft.style.display = 'block'; 
+
+    // if (index === images.length - 2 || index + 1 > images.length - 1 ) {   // костыль
+    //     btnRight.style.display = 'none';
+    // }
+    if (index === images.length - 2) {   // костыль
+        btnRight.style.display = 'none';
+    }
+    index = index + 1;
+
+    // index + 1 > images.length - 1  
+    // ? btnRight.style.display = 'none'  
+    // : index = index + 1;
+    
+    img.src = images[index].address;
+}
 // - Сворити масив не цензцрних слів.
 // Сворити інпут текстового типу.
 // Якщо людина вводить слово і воно міститься в масиві не цензурних слів
@@ -409,21 +448,21 @@
 
 // *** При виділені сегменту тексту на сторінці він стає жирний/курсивний/або якось іншим способом змінює свій стан
 
-const pTags = document.getElementsByTagName('p');
-console.log(pTags);
-for (const p of pTags) {
-    p.onmouseup = function() {
-        let area = document.getSelection().toString();
-        console.log(area);
-        this.innerHTML = this.innerText.replace(area, `<del>${area}</del>`); // or s or strike --- strikethrough
-        this.innerHTML = this.innerText.replace(area, `<ins>${area}</ins>`); // or u --- underlined
-        this.innerHTML = this.innerText.replace(area, `<sub>${area}</sub>`); // lower IndexText
-        this.innerHTML = this.innerText.replace(area, `<sup>${area}</sup>`); // upper IndexTex
-        this.innerHTML = this.innerText.replace(area, `<tt>${area}</tt>`); // моноширинный monospaced
-        this.innerHTML = this.innerText.replace(area, `<small>${area}</small>`); // reduce font
-        this.innerHTML = this.innerText.replace(area, `<big>${area}</big>`); // increase font
-        this.innerHTML = this.innerText.replace(area, `<i>${area}</i>`); // italic
-        this.innerHTML = this.innerText.replace(area, `<b>${area}</b>`); // bold
+// const pTags = document.getElementsByTagName('p');
+// console.log(pTags);
+// for (const p of pTags) {
+//     p.onmouseup = function() {
+//         let area = document.getSelection().toString();
+//         console.log(area);
+//         this.innerHTML = this.innerText.replace(area, `<del>${area}</del>`); // or s or strike --- strikethrough
+//         this.innerHTML = this.innerText.replace(area, `<ins>${area}</ins>`); // or u --- underlined
+//         this.innerHTML = this.innerText.replace(area, `<sub>${area}</sub>`); // lower IndexText
+//         this.innerHTML = this.innerText.replace(area, `<sup>${area}</sup>`); // upper IndexTex
+//         this.innerHTML = this.innerText.replace(area, `<tt>${area}</tt>`); // моноширинный monospaced
+//         this.innerHTML = this.innerText.replace(area, `<small>${area}</small>`); // reduce font
+//         this.innerHTML = this.innerText.replace(area, `<big>${area}</big>`); // increase font
+//         this.innerHTML = this.innerText.replace(area, `<i>${area}</i>`); // italic
+//         this.innerHTML = this.innerText.replace(area, `<b>${area}</b>`); // bold
 
-    };
-}
+//     };
+// }
