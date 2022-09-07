@@ -11,7 +11,9 @@ class Weapon {
     }
 
     attack() {
-        console.log(`Удар мечом, урон: ${this.damage}`);
+        // Violation of the principle
+        this.type === 'sword' && console.log(`Удар мечом, урон: ${this.damage}`);
+        this.type === 'crossbow' && console.log(`Удар с арбалета, урон: ${this.damage}`);
     }
 }
 
@@ -35,5 +37,9 @@ class Character {
 
 const sword = new Weapon('sword', 15, 2);
 const character = new Character('warrior', sword);
+character.attack();
+
+const crossbow = new Weapon('crossbow', 10, 100);
+character.changeWeapon(crossbow);
 character.attack();
 
