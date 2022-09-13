@@ -5,7 +5,7 @@ class Database {
     url: number;
 
     constructor() {
-       this.url = Math.random();            
+       this.url = Math.random();
     }
 }
 
@@ -18,15 +18,15 @@ console.log(db2.url); // different values
 //  1.2
 class DatabaseSinglton {
     url: number;
-    private static instance: Database;
+    private static instance: DatabaseSinglton;
 
     constructor() {
         if (DatabaseSinglton.instance) {
             return DatabaseSinglton.instance;
         }
 
-       this.url = Math.random();  
-       DatabaseSinglton.instance = this;          
+       this.url = Math.random();
+       DatabaseSinglton.instance = this;
     }
 }
 
