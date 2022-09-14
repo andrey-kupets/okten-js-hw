@@ -1,4 +1,7 @@
-// // 1 incapsulation: getters & setters
+// // 1 encapsulation - защита данных от доступа извне класса иди в дочерних классах
+//
+// 1.1 encapsulation: getters & setters
+//
 // class Rectangle {
 //     private _width: Number;
 //     private _height: Number;
@@ -33,7 +36,7 @@
 // rect.height = -10; // error
 // console.log(rect);
 
-// // 2 incapsulation: getters & setters
+// // 1.2 encapsulation: getters & setters
 
 // class User {
 //     private _name: string;
@@ -43,30 +46,30 @@
 //     constructor( name: string, password: string ) {
 //         this._name = name;
 //         this._password = password;
-//         // this._id = generateId();  // random method returns string      
+//         // this._id = generateId();  // random method returns string
 //     }
 
-    
+
 //     public get name() : string {
 //         return this._name;
 //     }
-    
+
 
 //     public set name(v : string) {
 //         this._name = v;
 //     }
 
-    
+
 //     public get password() : string {
 //         return this._password;
 //     }
-    
+
 
 //     public set password(v : string) {
 //         this._password = v;
 //     }
 
-    
+
 //     public get id() : string {
 //         return this._id;
 //     }
@@ -77,7 +80,7 @@
 // user.id = 5; // error
 // user.name = 'Oleg';
 
-// // 3 incapsulation: random methods
+// // 1.3 encapsulation: random methods
 
 // interface Table {
 //     name: string;
@@ -107,11 +110,11 @@
 //     public clearTables() {
 //         this._tables = [];
 //     }
-    
+
 //     public get url() : string {
 //         return this._url;
 //     }
-    
+
 //     public get port() : string {
 //         return this._port;
 //     }
@@ -126,7 +129,7 @@
 
 //     public get tables() : Array<Table> {
 //         return this._tables;
-//     }    
+//     }
 // }
 
 // const db = new Database('1', '2', '3', '4');
@@ -140,55 +143,90 @@
 
 // 2 inheritance
 
-class Person {
-    private _firstname;
-    private _lastname;
-    private _age;
-    constructor(firstname, lastname, age) {
-        this._firstname = firstname;
-        this._lastname = lastname;
-        this._age = age;
-    }
+// class Person {
+//     private _firstname;
+//     private _lastname;
+//     private _age;
+//     constructor(firstname, lastname, age) {
+//         this._firstname = firstname;
+//         this._lastname = lastname;
+//         this._age = age;
+//     }
+//
+//     public get fullname() : string {
+//     // public fullname() : string { // w/o getter - only pure method
+//         return `Фамиля - ${this._lastname} Имя - ${this._firstname}  `
+//     }
+//
+//     public greeting() {
+//         console.log(`My name is ${this._firstname} and i am a person`);
+//     }
+// }
+//
+// class Dev extends Person {
+//     private level;
+//     private language;
+//
+//     constructor(firstname: string, lastname: string, age: number, level: string, language: string) {
+//         super(firstname, lastname, age);
+//         this.level = level;
+//         this.language = language;
+//     }
+//
+//     public greeting() { // rewrite parent method
+//         console.log(`My name is ${this._firstname} and i am a dev`);
+//     }
+// }
+//
+// const andre = new Dev('Andre', 'Dantes', 45, 'june', 'js');
+// console.log(andre);
+// console.log(andre.fullname); // inheritates parent method
+// // console.log(andre.fullname()); // w/o getter - only pure method
+//
+//
+// // 3 polymorphism  -  один метод и разыне реализации (также способность одного метода работать с разными типами данных)
+//
+// const vasya = new Person('vasya', 'rok', 15);
+//
+// // one method works identically (5+5=10; '5' + '5' = '55' work with different types can be implemented in one method )
+// const persons = [vasya, andre];
+// const massGreating = (persons) => {
+//     persons.forEach(person => person.greeting());
+// }
+//
+// massGreating(persons);
 
-    public get fullname() : string {
-    // public fullname() : string { // w/o getter - only pure method
-        return `Фамиля - ${this._lastname} Имя - ${this._firstname}  `
-    }
 
-    public greeting() {
-        console.log(`My name is ${this._firstname} and i am a person`);
-    }
+// 4 abstraction - использование толкьо тех характеристик объекта, которые с большей точностью представляют его в данной системе
+
+abstract class Car {
+  constructor(
+    protected owner: string,
+    protected speed: number,
+    protected year: number,
+  ) {}
+
+  public drive() {}
+  public repair() {}
 }
 
-class Dev extends Person {
-    private level;
-    private language;
+class BMW extends Car {
+  constructor(
+    protected speed: number,
+    protected year: number,
+  ) {
+    super('BMW-motors', speed, year)
+  }
 
-    constructor(firstname: string, lastname: string, age: number, level: string, language: string) {
-        super(firstname, lastname, age);
-        this.level = level;
-        this.language = language;
-    }
+  drive() {
+    console.log(`The BMW car has speed ${this.speed}`);
+  }
 
-    public greeting() { // rewrite parent method
-        console.log(`My name is ${this._firstname} and i am a dev`);
-    }
+  repair() {
+    console.log(`The BMW car was repaired`);
+  }
 }
 
-const andre = new Dev('Andre', 'Dantes', 45, 'june', 'js');
-console.log(andre);
-console.log(andre.fullname); // inheritates parent method
-// console.log(andre.fullname()); // w/o getter - only pure method
-
-
-// 3 polymorphism
-
-const vasya = new Person('vasya', 'rok', 15);
-
-// one method works identically (5+5=10; '5' + '5' = '55' work with different types can be implemented in one method )
-const persons = [vasya, andre];
-const massGreating = (persons) => {
-    persons.forEach(person => person.greeting());
-}
-
-massGreating(persons);
+const bmwCar = new BMW(200, 2022);
+bmwCar.drive();
+bmwCar.repair();
