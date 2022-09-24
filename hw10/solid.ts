@@ -58,49 +58,90 @@
 // character.changeWeapon(crossbow);
 // character.attack();
 
+
 // 3 Liskov substitution principle
-// функционал использования дочерних классов дополняет, но не замещает поведение родительских (например в функциях)
+// функционал использования дочерних классов дополняет, 
+// но не замещает поведение родительских (например в функциях)
 
-class DB {
-    connect() {}
-    read() {}
-    write() {}
-    // jointables() {} // violation of principle
+// class DB {
+//     connect() {}
+//     read() {}
+//     write() {}
+//     // jointables() {} // violation of principle
+// }
+
+// class SQLDB extends DB {
+//     connect() {};
+//     read() {};
+//     write() {};
+//     jointables() {}; // + extention
+// }
+
+// class NoSQLDB extends DB {
+//     connect() {};
+//     read() {};
+//     write() {};
+//     createindex() {}; // can't use jointables-method - it would be a substitute of method ("throw error"), cause NoSQL-class: no tables
+// }
+
+// class MySQLDB extends SQLDB {
+//     connect() {};
+//     read() {};
+//     write() {};
+//     jointables() {}; 
+// }
+
+// class MongoDB extends NoSQLDB {
+//     connect() {};
+//     read() {};
+//     write() {};
+//     createindex() {}; 
+//     mergeDocuments() {};
+// }
+
+// function startApp(database: DB) {
+//     database.connect();
+// }
+
+// startApp(new MySQLDB());
+// startApp(new MongoDB());
+
+
+// 4 Interface segregation principle
+// программные сущности не должны зависеть от методов,
+// которые они не используют
+
+interface HttpRequest {
+    get: () => void;
+    post: () => void;
+    put: () => void;
+    delete: () => void;
+    // addToken: () => void; // - vioaltion of principle. can't use in ServerHttp class  
 }
 
-class SQLDB extends DB {
-    connect() {};
-    read() {};
-    write() {};
-    jointables() {}; // + extention
+interface TokenStorage { // create new interface for Client class only
+    addToken: () => void;
+    getToken: () => void;
 }
 
-class NoSQLDB extends DB {
-    connect() {};
-    read() {};
-    write() {};
-    createindex() {}; // can't use jointables-method - it would be a substitute of method ("throw error"), cause NoSQL-class: no tables
+class ServerHttp implements HttpRequest {
+    get(): void {};
+    post(): void {};
+    put(): void {};
+    delete(): void {};
+    // addToken(): void { // don't implement!
+    //    throw new Error("not impemented");
+    // }  
 }
 
-class MySQLDB extends SQLDB {
-    connect() {};
-    read() {};
-    write() {};
-    jointables() {}; 
+class ClientHttp implements HttpRequest, TokenStorage { // use TokenStorage separately from Server, for Client only
+    get(): void {};
+    post(): void {};
+    put(): void {};
+    delete(): void {};
+    addToken(): void { // implement for Client!
+       return localStorage.get('token');
+    } 
+    
+    getToken: () => void;
 }
-
-class MongoDB extends NoSQLDB {
-    connect() {};
-    read() {};
-    write() {};
-    createindex() {}; 
-    mergeDocuments() {};
-}
-
-function startApp(database: DB) {
-    database.connect();
-}
-
-startApp(new MySQLDB());
-startApp(new MongoDB());
-
