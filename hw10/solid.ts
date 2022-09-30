@@ -60,8 +60,9 @@
 
 
 // 3 Liskov substitution principle
-// функционал использования дочерних классов дополняет, 
-// но не замещает поведение родительских (например в функциях)
+// наследуемый класс должен дополнять, 
+// а не замещать поведение родительского
+// (например при имплементации этих классов в функциях)
 
 // class DB {
 //     connect() {}
@@ -111,37 +112,80 @@
 // программные сущности не должны зависеть от методов,
 // которые они не используют
 
-interface HttpRequest {
-    get: () => void;
-    post: () => void;
-    put: () => void;
-    delete: () => void;
-    // addToken: () => void; // - vioaltion of principle. can't use in ServerHttp class  
-}
+// interface HttpRequest {
+//     get: () => void;
+//     post: () => void;
+//     put: () => void;
+//     delete: () => void;
+//     // addToken: () => void; // - vioaltion of principle. can't use in ServerHttp class  
+// }
 
-interface TokenStorage { // create new interface for Client class only
-    addToken: () => void;
-    getToken: () => void;
-}
+// interface TokenStorage { // create new interface for Client class only
+//     addToken: () => void;
+//     getToken: () => void;
+// }
 
-class ServerHttp implements HttpRequest {
-    get(): void {};
-    post(): void {};
-    put(): void {};
-    delete(): void {};
-    // addToken(): void { // don't implement!
-    //    throw new Error("not impemented");
-    // }  
-}
+// class ServerHttp implements HttpRequest {
+//     get(): void {};
+//     post(): void {};
+//     put(): void {};
+//     delete(): void {};
+//     // addToken(): void { // don't implement!
+//     //    throw new Error("not impemented");
+//     // }  
+// }
 
-class ClientHttp implements HttpRequest, TokenStorage { // use TokenStorage separately from Server, for Client only
-    get(): void {};
-    post(): void {};
-    put(): void {};
-    delete(): void {};
-    addToken(): void { // implement for Client!
-       return localStorage.get('token');
-    } 
+// class ClientHttp implements HttpRequest, TokenStorage { // use TokenStorage separately from Server, for Client only
+//     get(): void {};
+//     post(): void {};
+//     put(): void {};
+//     delete(): void {};
+//     addToken(): void { // implement for Client!
+//        return localStorage.get('token');
+//     } 
     
-    getToken: () => void;
+//     getToken: () => void;
+// }
+
+
+// 5. dependency inversion principle
+// модули более высокго уровня не должны зависеть
+// от модулей более более низкого уровня 
+
+interface MusicApi {
+    getTracks: () => void;
+}
+
+class GoogleMusicApi implements MusicApi {
+    // get() {} // implements interface single method
+    getTracks(): void {};
+}
+
+class SpotifyMusicApi {
+    // findAll() {} // implements interface single method
+    getTracks(): void {};
+}
+
+class YouTubeMusicApi {
+    // query() {} // implements interface single method
+    getTracks(): void {};
+}
+
+class MusicClient implements MusicApi {
+    client: MusicApi;
+
+    constructor(client: MusicApi) {
+        this.client = client;
+    }
+
+    getTracks() {
+        this.client.getTracks();
+    }
+}
+
+const MusicApp = () => {
+    // const API: MusicApi = new SpotifyMusicApi();
+    const API = new MusicClient(new SpotifyMusicApi()); // single place for change due to abstraction "MusicClient"
+
+    API.getTracks();
 }
